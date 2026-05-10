@@ -93,10 +93,6 @@ const PortfolioOverview = () => {
                   <img 
                     src={subcategoryImages[sub] || portfolioStructure[selectedIndustry].img} 
                     alt={sub} 
-                    loading="lazy"
-                    decoding="async"
-                    width="400"
-                    height="400"
                     onError={(e) => { e.target.src = '/revolite/logos/logo-1.jpg'; }}
                   />
                 </div>
@@ -131,10 +127,6 @@ const PortfolioOverview = () => {
                 <img 
                   src={portfolioStructure[ind].img} 
                   alt={ind} 
-                  loading="lazy"
-                  decoding="async"
-                  width="400"
-                  height="400"
                   onError={(e) => { e.target.src = '/revolite/logos/logo-1.jpg'; }}
                 />
               </div>

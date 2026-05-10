@@ -34,14 +34,7 @@ const AboutPage = () => {
               </div>
             </div>
             <div className={styles.visual}>
-              <img 
-                src="/revolite/brand-assets/brand-1.jpg" 
-                alt="Studio Precision" 
-                loading="lazy"
-                decoding="async"
-                width="888"
-                height="560"
-              />
+              <img src="/revolite/brand-assets/brand-1.jpg" alt="Studio Precision" />
             </div>
           </div>
         </div>
