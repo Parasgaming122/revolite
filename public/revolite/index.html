@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>REVO-LITE &mdash; Premium Branding Studio</title>
+<meta name="description" content="REVO-LITE is a premium branding and design studio crafting logos, web banners, and brand identities for small businesses in USA, UK, Canada and Australia.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+<style>
+:root{--bg:#080808;--text:#f5f0eb;--accent:#e63946;--dark-red:#c1121f;--card:#111111;--muted:#888888;--border:rgba(255,255,255,0.08)}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{background:var(--bg);color:var(--text);font-family:'DM Sans',sans-serif;overflow-x:hidden;cursor:none}
+h1,h2,h3,h4,h5,h6{font-family:'Cormorant Garamond',serif;font-weight:300}
+img{max-width:100%;display:block}
+a{text-decoration:none;color:var(--text)}
+.cursor-dot{position:fixed;width:8px;height:8px;background:var(--accent);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:transform .1s}
+.cursor-ring{position:fixed;width:36px;height:36px;border:1.5px solid var(--accent);border-radius:50%;pointer-events:none;z-index:10000;transform:translate(-50%,-50%);transition:width .3s,height .3s,border-color .3s}
+.cursor-ring.hover{width:56px;height:56px;border-color:var(--text)}
+.navbar{position:fixed;top:0;left:0;width:100%;z-index:1000;padding:18px 48px;display:flex;align-items:center;justify-content:space-between;transition:background .4s,backdrop-filter .4s}
+.navbar.scrolled{background:rgba(8,8,8,.85);backdrop-filter:blur(20px);border-bottom:1px solid var(--border)}
+.nav-logo img{height:36px;width:auto}
+.nav-links{display:flex;align-items:center;gap:32px}
+.nav-links a{font-size:14px;letter-spacing:.5px;position:relative;padding:4px 0;transition:color .3s}
+.nav-links a::after{content:'';position:absolute;bottom:-2px;left:0;width:0;height:2px;background:var(--accent);transition:width .3s}
+.nav-links a:hover::after,.nav-links a.active::after{width:100%}
+.nav-cta{background:var(--accent);color:#fff;padding:10px 24px;border-radius:4px;font-size:13px;font-weight:600;letter-spacing:.5px;border:none;cursor:pointer;transition:background .3s,transform .3s}
+.nav-cta:hover{background:var(--dark-red);transform:translateY(-2px)}
+.hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;z-index:1001}
+.hamburger span{width:24px;height:2px;background:var(--text);transition:transform .3s,opacity .3s}
+.hamburger.open span:nth-child(1){transform:rotate(45deg) translate(5px,5px)}
+.hamburger.open span:nth-child(2){opacity:0}
+.hamburger.open span:nth-child(3){transform:rotate(-45deg) translate(5px,-5px)}
+.mobile-menu{position:fixed;top:0;left:0;width:100%;height:100vh;background:rgba(8,8,8,.97);z-index:999;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:32px;opacity:0;pointer-events:none;transition:opacity .4s}
+.mobile-menu.open{opacity:1;pointer-events:all}
+.mobile-menu a{font-family:'Cormorant Garamond',serif;font-size:36px;font-weight:300;opacity:0;transform:translateY(20px)}
+.hero{position:relative;height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;overflow:hidden}
+.hero-canvas{position:absolute;top:0;left:0;width:100%;height:100%;z-index:0}
+.hero-watermark{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);opacity:.03;width:600px;pointer-events:none;z-index:0}
+.hero-content{position:relative;z-index:2;max-width:900px;padding:0 24px}
+.hero-eyebrow{font-size:13px;letter-spacing:4px;text-transform:uppercase;color:var(--accent);margin-bottom:24px;opacity:0}
+.hero-title{font-size:clamp(48px,8vw,96px);line-height:1.05;margin-bottom:24px;opacity:0}
+.hero-title .italic{font-style:italic;color:var(--accent)}
+.hero-desc{font-size:18px;color:var(--muted);line-height:1.7;margin-bottom:40px;opacity:0}
+.hero-btns{display:flex;gap:16px;justify-content:center;flex-wrap:wrap;opacity:0}
+.btn-primary{background:var(--accent);color:#fff;padding:14px 36px;border:none;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:.5px;cursor:pointer;transition:background .3s,transform .3s}
+.btn-primary:hover{background:var(--dark-red);transform:translateY(-2px)}
+.btn-outline{border:1px solid var(--border);color:var(--text);padding:14px 36px;background:transparent;border-radius:4px;font-family:'DM Sans',sans-serif;font-size:14px;font-weight:600;letter-spacing:.5px;cursor:pointer;transition:border-color .3s,transform .3s}
+.btn-outline:hover{border-color:var(--accent);transform:translateY(-2px)}
+.scroll-indicator{position:absolute;bottom:40px;left:50%;transform:translateX(-50%);display:flex;flex-direction:column;align-items:center;gap:8px;opacity:0;z-index:2}
+.scroll-indicator .line{width:1px;height:40px;background:linear-gradient(to bottom,var(--accent),transparent);animation:scrollPulse 2s infinite}
+.scroll-indicator span{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--muted)}
+@keyframes scrollPulse{0%,100%{opacity:.3;transform:scaleY(.6)}50%{opacity:1;transform:scaleY(1)}}
+.ticker{background:var(--accent);padding:14px 0;overflow:hidden;white-space:nowrap;position:relative}
+.ticker-track{display:flex;animation:tickerScroll 30s linear infinite}
+.ticker-track span{font-size:14px;font-weight:600;letter-spacing:2px;color:#fff;padding:0 24px;flex-shrink:0}
+@keyframes tickerScroll{0%{transform:translateX(0)}100%{transform:translateX(-33.333%)}}
+.section{padding:120px 48px;position:relative}
+.section-label{font-size:13px;letter-spacing:3px;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.section-title{font-size:clamp(36px,5vw,56px);margin-bottom:16px}
+.section-subtitle{color:var(--muted);font-size:16px;margin-bottom:60px;max-width:500px}
+.slider-container{position:relative;margin-bottom:60px}
+.slider-label{font-size:13px;letter-spacing:2px;color:var(--muted);margin-bottom:20px}
+.slider-track{display:flex;gap:24px;overflow-x:auto;scroll-behavior:smooth;-ms-overflow-style:none;scrollbar-width:none;padding:12px 0}
+.slider-track::-webkit-scrollbar{display:none}
+.slider-arrow{position:absolute;top:50%;transform:translateY(-50%);width:44px;height:44px;background:rgba(17,17,17,.9);border:1px solid var(--border);border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;z-index:5;transition:border-color .3s,transform .3s}
+.slider-arrow:hover{border-color:var(--accent);transform:translateY(-50%) scale(1.1)}
+.slider-arrow.left{left:-22px}
+.slider-arrow.right{right:-22px}
+.slider-arrow svg{width:18px;height:18px;fill:none;stroke:var(--text);stroke-width:2}
+.portfolio-card{position:relative;flex-shrink:0;border-radius:8px;overflow:hidden;background:var(--card);border:1px solid var(--border);transition:transform .4s,border-color .4s;transform-style:preserve-3d;perspective:800px}
+.portfolio-card.square{width:280px;height:280px}
+.portfolio-card.landscape{width:480px;height:270px}
+.portfolio-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s}
+.portfolio-card:hover img{transform:scale(1.05)}
+.portfolio-card .card-overlay{position:absolute;inset:0;background:rgba(8,8,8,.7);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .4s}
+.portfolio-card:hover .card-overlay{opacity:1}
+.card-overlay span{font-size:14px;letter-spacing:1px;color:#fff}
+.card-overlay .arrow{margin-top:8px;font-size:20px;color:var(--accent)}
+.card-badge{position:absolute;top:12px;left:12px;background:rgba(230,57,70,.85);color:#fff;font-size:11px;padding:4px 10px;border-radius:3px;letter-spacing:.5px;z-index:3}
+.img-failed{position:relative}
+.img-failed img{display:none!important}
+.img-failed::after{content:'';position:absolute;inset:0;background:var(--card);background-image:repeating-linear-gradient(45deg,transparent,transparent 10px,rgba(255,255,255,.02) 10px,rgba(255,255,255,.02) 20px)}
+.builtin-banner{position:relative;width:480px;height:270px;flex-shrink:0;border-radius:8px;overflow:hidden;background:#080808;display:flex;align-items:center;justify-content:space-between;padding:32px 40px;border:1px solid var(--border)}
+.builtin-banner .bb-left{z-index:2}
+.builtin-banner .bb-title{font-family:'Cormorant Garamond',serif;font-size:42px;font-weight:300;color:var(--text);line-height:1.1}
+.builtin-banner .bb-sub{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted);margin-top:12px}
+.builtin-banner .bb-bottom{position:absolute;bottom:16px;left:40px;font-size:10px;color:var(--muted);letter-spacing:1px;z-index:2}
+.builtin-banner .bb-shapes{position:absolute;right:40px;top:50%;transform:translateY(-50%);z-index:1}
+.builtin-banner .bb-shapes .circle{position:absolute;border-radius:50%;border:1.5px solid}
+.builtin-banner .bb-shapes .c1{width:80px;height:80px;border-color:var(--accent);top:-40px;right:0}
+.builtin-banner .bb-shapes .c2{width:50px;height:50px;border-color:rgba(255,255,255,.15);top:-10px;right:30px}
+.builtin-banner .bb-shapes .c3{width:30px;height:30px;border-color:var(--accent);opacity:.5;top:10px;right:60px}
+.bb-line{position:absolute;background:var(--accent);opacity:.3}
+.bb-line.l1{width:1px;height:60px;right:100px;top:20px}
+.bb-line.l2{width:40px;height:1px;right:60px;top:50%}
+.services-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:32px}
+.service-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:40px 32px;position:relative;transition:transform .4s,border-color .4s,box-shadow .4s;cursor:pointer}
+.service-card:hover{transform:translateY(-8px);border-color:var(--accent);box-shadow:0 0 30px rgba(230,57,70,.15)}
+.service-card .number{position:absolute;top:20px;right:24px;font-family:'Cormorant Garamond',serif;font-size:48px;font-weight:300;color:rgba(230,57,70,.15)}
+.service-card .icon{width:48px;height:48px;margin-bottom:24px}
+.service-card .icon svg{width:100%;height:100%;stroke:var(--accent);fill:none;stroke-width:1.5}
+.service-card h3{font-size:24px;margin-bottom:12px}
+.service-card p{color:var(--muted);font-size:14px;line-height:1.7}
+.service-expand{max-height:0;overflow:hidden;transition:max-height .5s ease}
+.service-expand.open{max-height:200px}
+.service-expand ul{list-style:none;padding-top:20px;border-top:1px solid var(--border);margin-top:20px}
+.service-expand li{font-size:13px;color:var(--muted);padding:6px 0;padding-left:16px;position:relative}
+.service-expand li::before{content:'*';position:absolute;left:0;color:var(--accent)}
+.stats-section{display:flex;justify-content:center;gap:0;padding:80px 48px;border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{flex:1;text-align:center;padding:24px;border-right:1px solid var(--accent);position:relative}
+.stat:last-child{border-right:none}
+.stat .num{font-family:'Cormorant Garamond',serif;font-size:clamp(36px,5vw,56px);font-weight:300;color:var(--text)}
+.stat .label{font-size:13px;color:var(--muted);letter-spacing:1px;margin-top:8px}
+.testimonials{text-align:center}
+.testimonial-carousel{position:relative;max-width:700px;margin:0 auto;overflow:hidden}
+.testimonial-slide{display:none;flex-direction:column;align-items:center;padding:40px 24px;animation:fadeSlide .6s ease}
+.testimonial-slide.active{display:flex}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.testimonial-stars{color:var(--accent);font-size:18px;margin-bottom:20px;letter-spacing:4px}
+.testimonial-text{font-family:'Cormorant Garamond',serif;font-size:22px;font-style:italic;line-height:1.7;margin-bottom:24px;color:var(--text)}
+.testimonial-author{font-size:14px;font-weight:600;color:var(--text)}
+.testimonial-role{font-size:12px;color:var(--muted);margin-top:4px}
+.testimonial-dots{display:flex;gap:8px;justify-content:center;margin-top:32px}
+.testimonial-dots .dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:background .3s}
+.testimonial-dots .dot.active{background:var(--accent)}
+.cta-section{text-align:center;padding:120px 48px;position:relative;overflow:hidden}
+.cta-section::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,#0a0a0a,#111,#0a0a0a);background-size:400% 400%;animation:ctaGrad 8s ease infinite}
+@keyframes ctaGrad{0%,100%{background-position:0 50%}50%{background-position:100% 50%}}
+.cta-title{font-size:clamp(36px,5vw,56px);position:relative;z-index:2}
+.cta-sub{color:var(--muted);font-size:18px;margin-top:16px;margin-bottom:40px;position:relative;z-index:2}
+.cta-btn{position:relative;z-index:2;display:inline-block}
+.cta-btn .pulse{position:absolute;inset:-8px;border-radius:8px;border:1px solid var(--accent);opacity:0;animation:pulseRing 2s infinite}
+@keyframes pulseRing{0%{opacity:.6;transform:scale(1)}100%{opacity:0;transform:scale(1.15)}}
+.cta-geo{position:absolute;border:1px solid rgba(230,57,70,.1);border-radius:50%;z-index:1;animation:geoFloat 12s ease-in-out infinite}
+.about-page{padding:120px 48px}
+.disclaimer-card{border:1px solid var(--accent);border-radius:12px;padding:40px;margin-bottom:60px;position:relative;overflow:hidden}
+.disclaimer-card p{font-size:15px;color:var(--muted);line-height:1.8;font-style:italic}
+.about-story h2{margin-bottom:24px}
+.about-story p{color:var(--muted);font-size:16px;line-height:1.8;max-width:700px}
+.about-banner{width:100%;height:420px;background:#0d0d0d;border-radius:12px;position:relative;overflow:hidden;display:flex;align-items:center;margin:60px 0;padding:60px}
+.ab-left{z-index:2;flex:1}
+.ab-left h2{font-family:'Cormorant Garamond',serif;font-size:clamp(32px,4vw,48px);font-style:italic;font-weight:300;line-height:1.2;margin-bottom:16px}
+.ab-left .est{font-size:11px;letter-spacing:4px;text-transform:uppercase;color:var(--muted)}
+.ab-countries{position:absolute;bottom:24px;left:60px;font-size:11px;color:var(--muted);letter-spacing:1px;z-index:2}
+.ab-right{flex:1;position:relative;display:flex;align-items:center;justify-content:center}
+.ripple-ring{position:absolute;border-radius:50%;border:1px solid var(--accent);animation:rippleOut 4s ease-out infinite}
+.ripple-ring:nth-child(2){animation-delay:1s}
+.ripple-ring:nth-child(3){animation-delay:2s}
+.ripple-ring:nth-child(4){animation-delay:3s}
+@keyframes rippleOut{0%{width:20px;height:20px;opacity:.8}100%{width:300px;height:300px;opacity:0}}
+.affiliations{padding:80px 48px;text-align:center}
+.affiliations h3{font-size:14px;letter-spacing:3px;text-transform:uppercase;color:var(--muted);margin-bottom:40px}
+.aff-grid{display:flex;flex-wrap:wrap;justify-content:center;gap:32px}
+.aff-item{padding:20px 32px;border:1px solid var(--border);border-radius:8px;font-size:13px;color:var(--muted);letter-spacing:1px;transition:transform .3s,border-color .3s}
+.aff-item:hover{transform:translateY(-4px);border-color:var(--accent)}
+.contact-section{padding:80px 48px;max-width:600px;margin:0 auto}
+.contact-section h2{text-align:center;margin-bottom:40px}
+.contact-links{display:flex;justify-content:center;gap:32px;margin-bottom:40px}
+.contact-links a{display:flex;align-items:center;gap:8px;color:var(--muted);font-size:14px;transition:color .3s}
+.contact-links a:hover{color:var(--accent)}
+.contact-form{display:flex;flex-direction:column;gap:16px}
+.contact-form input,.contact-form textarea{background:var(--card);border:1px solid var(--border);border-radius:6px;padding:14px 18px;color:var(--text);font-family:'DM Sans',sans-serif;font-size:14px;outline:none;transition:border-color .3s,box-shadow .3s}
+.contact-form input:focus,.contact-form textarea:focus{border-color:var(--accent);box-shadow:0 0 15px rgba(230,57,70,.15)}
+.contact-form textarea{min-height:120px;resize:vertical}
+.portfolio-page{padding:120px 48px}
+.portfolio-page h1{font-size:clamp(36px,5vw,56px);margin-bottom:60px}
+.masonry-grid{columns:3;column-gap:24px}
+.masonry-grid .grid-card{break-inside:avoid;margin-bottom:24px;position:relative;border-radius:8px;overflow:hidden;background:var(--card);border:1px solid var(--border);cursor:pointer;transition:transform .3s,border-color .3s}
+.masonry-grid .grid-card:hover{border-color:var(--accent)}
+.masonry-grid .grid-card img{width:100%;display:block}
+.masonry-grid .grid-card .card-overlay{position:absolute;inset:0;background:rgba(8,8,8,.7);backdrop-filter:blur(6px);display:flex;flex-direction:column;align-items:center;justify-content:center;opacity:0;transition:opacity .4s}
+.masonry-grid .grid-card:hover .card-overlay{opacity:1}
+.lightbox{position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:9999;display:none;align-items:center;justify-content:center;cursor:pointer}
+.lightbox.open{display:flex}
+.lightbox img{max-width:90vw;max-height:90vh;border-radius:8px;animation:lbIn .4s ease}
+@keyframes lbIn{from{opacity:0;transform:scale(.85)}to{opacity:1;transform:scale(1)}}
+.footer{border-top:2px solid var(--accent);padding:60px 48px 32px;display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:40px}
+.footer-brand img{height:48px;margin-bottom:12px}
+.footer-brand p{color:var(--muted);font-size:13px;line-height:1.7}
+.footer-col h4{font-size:13px;letter-spacing:2px;text-transform:uppercase;color:var(--text);margin-bottom:16px}
+.footer-col a{display:block;color:var(--muted);font-size:13px;margin-bottom:10px;transition:color .3s}
+.footer-col a:hover{color:var(--accent)}
+.footer-bottom{grid-column:1/-1;text-align:center;padding-top:24px;border-top:1px solid var(--border);font-size:12px;color:var(--muted)}
+.page-section{display:none}
+.page-section.active{display:block}
+.page-overlay{position:fixed;inset:0;background:var(--bg);z-index:9998;transform:scaleY(0);transform-origin:top;pointer-events:none}
+@keyframes geoFloat{0%,100%{transform:rotate(0deg) scale(1)}50%{transform:rotate(180deg) scale(1.1)}}
+@media(max-width:768px){
+.navbar{padding:14px 20px}.nav-links{display:none}.hamburger{display:flex}.section{padding:80px 20px}
+.services-grid{grid-template-columns:1fr}.stats-section{flex-direction:column;padding:40px 20px}
+.stat{border-right:none;border-bottom:1px solid var(--accent);padding:20px}.stat:last-child{border-bottom:none}
+.footer{grid-template-columns:1fr;gap:32px;padding:40px 20px}.masonry-grid{columns:1}
+.portfolio-page{padding:100px 20px}.about-page{padding:100px 20px}
+.about-banner{height:auto;flex-direction:column;padding:40px 24px}.ab-right{min-height:200px;margin-top:24px}
+.hero-title{font-size:clamp(36px,10vw,56px)}.portfolio-card.landscape{width:320px;height:180px}
+.builtin-banner{width:320px;height:180px;padding:20px}.builtin-banner .bb-title{font-size:28px}.slider-arrow{display:none}
+}
+@media(min-width:769px) and (max-width:1024px){.masonry-grid{columns:2}.services-grid{grid-template-columns:repeat(2,1fr)}}
+</style>
+</head>
+<body>
+<div class="cursor-dot" id="cursorDot"></div>
+<div class="cursor-ring" id="cursorRing"></div>
+<div class="page-overlay" id="pageOverlay"></div>
+<div class="lightbox" id="lightbox" onclick="closeLightbox()"><img id="lightboxImg" src="" alt="Full view"></div>
+<nav class="navbar" id="navbar">
+<a href="#" class="nav-logo" onclick="showPage('home')"><img src="./RETINA PNG GOOGLE SIZE.png" alt="REVO-LITE"></a>
+<div class="nav-links">
+<a href="#" onclick="showPage('logos')" data-page="logos">Logos</a>
+<a href="#" onclick="showPage('banners')" data-page="banners">Banners</a>
+<a href="#" onclick="showPage('branding')" data-page="branding">Branding</a>
+<a href="#" onclick="showPage('about')" data-page="about">About Us</a>
+<button class="nav-cta" onclick="showPage('about');setTimeout(function(){document.getElementById('contactSection').scrollIntoView({behavior:'smooth'})},400)">Get In Touch</button>
+</div>
+<div class="hamburger" id="hamburger" onclick="toggleMobile()"><span></span><span></span><span></span></div>
+</nav>
+<div class="mobile-menu" id="mobileMenu">
+<a href="#" onclick="showPage('home');toggleMobile()">Home</a>
+<a href="#" onclick="showPage('logos');toggleMobile()">Logos</a>
+<a href="#" onclick="showPage('banners');toggleMobile()">Banners</a>
+<a href="#" onclick="showPage('branding');toggleMobile()">Branding</a>
+<a href="#" onclick="showPage('about');toggleMobile()">About Us</a>
+</div>
+<!-- HOME -->
+<div class="page-section active" id="page-home">
+<section class="hero" id="heroSection">
+<canvas class="hero-canvas" id="heroCanvas"></canvas>
+<img class="hero-watermark" src="./RETINA PNG GOOGLE SIZE.png" alt="">
+<div class="hero-content">
+<div class="hero-eyebrow">Premium Branding Studio</div>
+<h1 class="hero-title">Where Brands<br><span class="italic">Come to Life</span></h1>
+<p class="hero-desc">We craft premium logos, web banners, and brand identities for businesses ready to stand out.<br>Built for small businesses. Designed for impact.</p>
+<div class="hero-btns">
+<button class="btn-primary" onclick="showPage('logos')">View Our Work</button>
+<button class="btn-outline" onclick="showPage('about')">About Us</button>
+</div>
+</div>
+<div class="scroll-indicator"><div class="line"></div><span>Scroll</span></div>
+</section>
+<div class="ticker"><div class="ticker-track">
+<span>Professional Logo Design &#9670; Web Banner Design &#9670; Brand Identity Packages &#9670; Small Business Branding &#9670; Visual Identity Systems &#9670; USA &middot; UK &middot; CA &middot; AU &#9670; </span>
+<span>Professional Logo Design &#9670; Web Banner Design &#9670; Brand Identity Packages &#9670; Small Business Branding &#9670; Visual Identity Systems &#9670; USA &middot; UK &middot; CA &middot; AU &#9670; </span>
+<span>Professional Logo Design &#9670; Web Banner Design &#9670; Brand Identity Packages &#9670; Small Business Branding &#9670; Visual Identity Systems &#9670; USA &middot; UK &middot; CA &middot; AU &#9670; </span>
+</div></div>
+<section class="section" id="featuredWork">
+<div class="section-label">Featured Work</div>
+<h2 class="section-title">A Curated Selection</h2>
+<p class="section-subtitle">Across logos, banners and brand identities</p>
+<div class="slider-container">
+<div class="slider-label">&mdash; Logo Designs</div>
+<div class="slider-arrow left" onclick="slideLeft('logoSlider')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></div>
+<div class="slider-track" id="logoSlider">
+<div class="portfolio-card square"><div class="card-badge">Logo</div><img src="./logos/logo-1.jpg" alt="Logo 1" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card square"><div class="card-badge">Logo</div><img src="./logos/logo-2.jpg" alt="Logo 2" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card square"><div class="card-badge">Logo</div><img src="./logos/logo-3.jpg" alt="Logo 3" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card square"><div class="card-badge">Logo</div><img src="./logos/logo-4.jpg" alt="Logo 4" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card square"><div class="card-badge">Logo</div><img src="./logos/logo-5.jpg" alt="Logo 5" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card square"><div class="card-badge">Logo</div><img src="./logos/logo-6.jpg" alt="Logo 6" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card square"><div class="card-badge">Logo</div><img src="./logos/logo-7.jpg" alt="Logo 7" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card square"><div class="card-badge">Logo</div><img src="./logos/logo-8.png" alt="Logo 8" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+</div>
+<div class="slider-arrow right" onclick="slideRight('logoSlider')"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+</div>
+<div class="slider-container">
+<div class="slider-label">&mdash; Banner Designs</div>
+<div class="slider-arrow left" onclick="slideLeft('bannerSlider')"><svg viewBox="0 0 24 24"><path d="M15 18l-6-6 6-6"/></svg></div>
+<div class="slider-track" id="bannerSlider">
+<div class="builtin-banner"><div class="bb-left"><div class="bb-title">REVO-LITE</div><div class="bb-sub">Premium Branding Studio</div></div><div class="bb-shapes"><div class="circle c1"></div><div class="circle c2"></div><div class="circle c3"></div><div class="bb-line l1"></div><div class="bb-line l2"></div></div><div class="bb-bottom">Logos &middot; Banners &middot; Brand Identity</div></div>
+<div class="portfolio-card landscape"><div class="card-badge">Banner</div><img src="./banners/banner-2.jpg" alt="Banner 2" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card landscape"><div class="card-badge">Banner</div><img src="./banners/banner-3.png" alt="Banner 3" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card landscape"><div class="card-badge">Banner</div><img src="./banners/banner-4.jpg" alt="Banner 4" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card landscape"><div class="card-badge">Banner</div><img src="./banners/banner-5.jpg" alt="Banner 5" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card landscape"><div class="card-badge">Banner</div><img src="./banners/banner-6.png" alt="Banner 6" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+<div class="portfolio-card landscape"><div class="card-badge">Banner</div><img src="./banners/banner-7.jpg" alt="Banner 7" onerror="this.parentElement.classList.add('img-failed')"><div class="card-overlay"><span>View Project</span><span class="arrow">&rarr;</span></div></div>
+</div>
+<div class="slider-arrow right" onclick="slideRight('bannerSlider')"><svg viewBox="0 0 24 24"><path d="M9 18l6-6-6-6"/></svg></div>
+</div>
+</section>
+<section class="section" id="servicesSection">
+<div class="section-label">Our Services</div>
+<h2 class="section-title">What We Do</h2>
+<p class="section-subtitle">Premium design solutions for growing businesses</p>
+<div class="services-grid">
+<div class="service-card" onclick="toggleService(this)">
+<div class="number">01</div>
+<div class="icon"><svg viewBox="0 0 48 48"><circle cx="24" cy="20" r="10"/><path d="M14 40c0-6 4-10 10-10s10 4 10 10"/><path d="M24 6v4M36 10l-3 3M38 24h-4"/></svg></div>
+<h3>Professional Logo Design</h3>
+<p>Distinctive marks that define your brand's identity and make lasting impressions.</p>
+<div class="service-expand"><ul><li>Primary logo + variations</li><li>Black &amp; white versions</li><li>Vector source files</li><li>Brand color palette</li></ul></div>
+</div>
+<div class="service-card" onclick="toggleService(this)">
+<div class="number">02</div>
+<div class="icon"><svg viewBox="0 0 48 48"><rect x="4" y="10" width="40" height="24" rx="3"/><line x1="4" y1="18" x2="44" y2="18"/><circle cx="10" cy="14" r="1.5"/><circle cx="16" cy="14" r="1.5"/></svg></div>
+<h3>Web Banner Design</h3>
+<p>High-converting visuals that capture attention across every digital touchpoint.</p>
+<div class="service-expand"><ul><li>Website header banners</li><li>Social media banners</li><li>Email header designs</li><li>Multiple size variations</li></ul></div>
+</div>
+<div class="service-card" onclick="toggleService(this)">
+<div class="number">03</div>
+<div class="icon"><svg viewBox="0 0 48 48"><rect x="6" y="6" width="16" height="16" rx="2"/><rect x="26" y="6" width="16" height="16" rx="2"/><rect x="6" y="26" width="16" height="16" rx="2"/><rect x="26" y="26" width="16" height="16" rx="2"/></svg></div>
+<h3>Brand Identity Packages</h3>
+<p>Complete visual systems built for consistency, recognition and long-term growth.</p>
+<div class="service-expand"><ul><li>Logo + full variations</li><li>Color system + typography</li><li>Brand guidelines document</li><li>Social media templates</li></ul></div>
+</div>
+</div>
+</section>
+<section class="stats-section" id="statsSection">
+<div class="stat"><div class="num" data-target="150">0</div><div class="label">Projects Delivered</div></div>
+<div class="stat"><div class="num" data-target="4">0</div><div class="label">Countries Served</div></div>
+<div class="stat"><div class="num" data-target="98">0</div><div class="label">Client Satisfaction %</div></div>
+<div class="stat"><div class="num" data-target="3">0</div><div class="label">Core Services</div></div>
+</section>
+<section class="section testimonials" id="testimonialsSection">
+<div class="section-label">Testimonials</div>
+<h2 class="section-title">Trusted by Businesses That Mean Business</h2>
+<div class="testimonial-carousel" id="testimonialCarousel">
+<div class="testimonial-slide active"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testimonial-text">"REVO-LITE gave our clothing brand a visual identity that finally matched the quality of our products. Sales increased noticeably within weeks of the rebrand."</p><div class="testimonial-author">Sarah K.</div><div class="testimonial-role">Apparel Brand Owner, USA</div></div>
+<div class="testimonial-slide"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testimonial-text">"The logo they designed is now our most recognizable asset. Professional, timeless, and exactly on-brand."</p><div class="testimonial-author">James T.</div><div class="testimonial-role">E-commerce Founder, UK</div></div>
+<div class="testimonial-slide"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testimonial-text">"From logo to full brand kit &mdash; everything was delivered with incredible attention to detail. Our packaging looks world-class now."</p><div class="testimonial-author">Mia L.</div><div class="testimonial-role">Skincare Brand, Canada</div></div>
+<div class="testimonial-slide"><div class="testimonial-stars">&#9733;&#9733;&#9733;&#9733;&#9733;</div><p class="testimonial-text">"Clean, premium, and memorable. REVO-LITE understood our brand positioning better than we did ourselves."</p><div class="testimonial-author">Omar R.</div><div class="testimonial-role">Marketing Agency, Australia</div></div>
+</div>
+<div class="testimonial-dots"><span class="dot active" onclick="goToSlide(0)"></span><span class="dot" onclick="goToSlide(1)"></span><span class="dot" onclick="goToSlide(2)"></span><span class="dot" onclick="goToSlide(3)"></span></div>
+</section>
+<section class="cta-section" id="ctaSection">
+<div class="cta-geo" style="width:200px;height:200px;top:10%;left:10%"></div>
+<div class="cta-geo" style="width:120px;height:120px;bottom:15%;right:15%;animation-delay:2s"></div>
+<div class="cta-geo" style="width:80px;height:80px;top:60%;left:70%;animation-delay:4s"></div>
+<h2 class="cta-title">Ready to Level Up Your Brand?</h2>
+<p class="cta-sub">Let's build something extraordinary together.</p>
+<div class="cta-btn"><span class="pulse"></span><button class="btn-primary" onclick="showPage('about');setTimeout(function(){document.getElementById('contactSection').scrollIntoView({behavior:'smooth'})},400)">Get In Touch</button></div>
+</section>
+</div>
+<!-- LOGOS PAGE -->
+<div class="page-section" id="page-logos"><div class="portfolio-page"><h1 class="section-title">Logo Designs</h1><div class="masonry-grid" id="logosGrid"></div></div></div>
+<!-- BANNERS PAGE -->
+<div class="page-section" id="page-banners"><div class="portfolio-page"><h1 class="section-title">Banner Designs</h1><div class="masonry-grid" id="bannersGrid"></div></div></div>
+<!-- BRANDING PAGE -->
+<div class="page-section" id="page-branding"><div class="portfolio-page"><h1 class="section-title">Brand Identities</h1><div class="masonry-grid" id="brandingGrid"></div></div></div>
+<!-- ABOUT PAGE -->
+<div class="page-section" id="page-about">
+<div class="about-page">
+<img src="./RETINA PNG GOOGLE SIZE.png" alt="REVO-LITE" style="height:48px;margin-bottom:40px">
+<div class="disclaimer-card"><p>All images displayed across our portfolio are samples. Due to strict client confidentiality agreements, we cannot upload original client assets. These samples serve to demonstrate the high level of quality, style, and creativity we bring to every project.</p></div>
+<div class="about-story">
+<h2 class="section-title">Our Story</h2>
+<p>REVO-LITE was built on one belief &mdash; that every business, regardless of size, deserves world-class design. From independent apparel brands to growing e-commerce stores, we bring the same precision and intentionality that global brands demand. We don&rsquo;t just design logos &mdash; we build the visual foundation your brand stands on.</p>
+</div>
+<div class="about-banner">
+<div class="ab-left"><h2>Where Identity<br>Meets Design</h2><div class="est">EST. 2024 &middot; REVO-LITE STUDIO</div></div>
+<div class="ab-right"><div class="ripple-ring"></div><div class="ripple-ring"></div><div class="ripple-ring"></div><div class="ripple-ring"></div></div>
+<div class="ab-countries">USA &middot; UK &middot; Canada &middot; Australia</div>
+</div>
+<div class="affiliations">
+<h3>Trusted Platforms &amp; Affiliations</h3>
+<div class="aff-grid"><div class="aff-item">Fiverr Pro</div><div class="aff-item">Upwork Top Rated</div><div class="aff-item">Behance Featured</div><div class="aff-item">Dribbble Showcase</div><div class="aff-item">99designs</div></div>
+</div>
+<div class="contact-section" id="contactSection">
+<h2 class="section-title">Get In Touch</h2>
+<div class="contact-links">
+<a href="https://instagram.com/revolite" target="_blank"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/></svg> @revolite</a>
+<a href="mailto:hello@revolite.com"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg> hello@revolite.com</a>
+</div>
+<form class="contact-form" onsubmit="event.preventDefault();alert('Message sent! We will get back to you soon.')">
+<input type="text" placeholder="Your Name" required>
+<input type="email" placeholder="Your Email" required>
+<textarea placeholder="Your Message" required></textarea>
+<button type="submit" class="btn-primary" style="width:100%">Send Message</button>
+</form>
+</div>
+</div>
+</div>
+<!-- FOOTER -->
+<footer class="footer">
+<div class="footer-brand"><img src="./RETINA PNG GOOGLE SIZE.png" alt="REVO-LITE"><p>Premium branding for businesses built to last.</p></div>
+<div class="footer-col"><h4>Services</h4><a href="#" onclick="showPage('logos')">Logo Design</a><a href="#" onclick="showPage('banners')">Web Banners</a><a href="#" onclick="showPage('branding')">Brand Identity</a></div>
+<div class="footer-col"><h4>Company</h4><a href="#" onclick="showPage('about')">About Us</a><a href="#" onclick="showPage('about');setTimeout(function(){document.getElementById('contactSection').scrollIntoView({behavior:'smooth'})},400)">Contact</a></div>
+<div class="footer-col"><h4>Connect</h4><a href="https://instagram.com/revolite" target="_blank">@revolite</a><a href="mailto:hello@revolite.com">hello@revolite.com</a></div>
+<div class="footer-bottom">&copy; 2026 REVO-LITE. All rights reserved.</div>
+</footer>
+<script>
+var dot=document.getElementById('cursorDot'),ring=document.getElementById('cursorRing');
+var mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',function(e){mx=e.clientX;my=e.clientY;dot.style.left=mx+'px';dot.style.top=my+'px'});
+function animateRing(){rx+=(mx-rx)*.15;ry+=(my-ry)*.15;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(animateRing)}
+animateRing();
+document.querySelectorAll('button,a,.portfolio-card,.service-card,.grid-card').forEach(function(el){
+el.addEventListener('mouseenter',function(){ring.classList.add('hover')});
+el.addEventListener('mouseleave',function(){ring.classList.remove('hover')});
+});
+window.addEventListener('scroll',function(){document.getElementById('navbar').classList.toggle('scrolled',window.scrollY>50)});
+function toggleMobile(){
+var h=document.getElementById('hamburger'),m=document.getElementById('mobileMenu');
+h.classList.toggle('open');m.classList.toggle('open');
+if(m.classList.contains('open')){gsap.fromTo(m.querySelectorAll('a'),{opacity:0,y:20},{opacity:1,y:0,stagger:.1,delay:.2})}
+}
+function showPage(page){
+var overlay=document.getElementById('pageOverlay');
+gsap.to(overlay,{scaleY:1,duration:.3,transformOrigin:'top',onComplete:function(){
+document.querySelectorAll('.page-section').forEach(function(s){s.classList.remove('active')});
+document.getElementById('page-'+page).classList.add('active');
+document.querySelectorAll('.nav-links a[data-page]').forEach(function(a){a.classList.toggle('active',a.dataset.page===page)});
+window.scrollTo(0,0);
+gsap.to(overlay,{scaleY:0,duration:.3,transformOrigin:'bottom',delay:.1});
+initPageAnimations(page);
+}});
+}
+function slideLeft(id){document.getElementById(id).scrollBy({left:-320,behavior:'smooth'})}
+function slideRight(id){document.getElementById(id).scrollBy({left:320,behavior:'smooth'})}
+['logoSlider','bannerSlider'].forEach(function(id){
+var el=document.getElementById(id);if(!el)return;
+var paused=false;
+el.addEventListener('mouseenter',function(){paused=true});
+el.addEventListener('mouseleave',function(){paused=false});
+setInterval(function(){if(!paused&&el){
+if(el.scrollLeft>=el.scrollWidth-el.clientWidth-10)el.scrollTo({left:0,behavior:'smooth'});
+else el.scrollBy({left:1,behavior:'auto'});
+}},30);
+});
+document.addEventListener('mousemove',function(e){
+document.querySelectorAll('.portfolio-card,.grid-card').forEach(function(card){
+var r=card.getBoundingClientRect();
+if(e.clientX>=r.left&&e.clientX<=r.right&&e.clientY>=r.top&&e.clientY<=r.bottom){
+var cx=(e.clientX-r.left)/r.width-.5,cy=(e.clientY-r.top)/r.height-.5;
+card.style.transform='perspective(800px) rotateY('+(cx*10)+'deg) rotateX('+(-cy*10)+'deg)';
+}else{card.style.transform=''}
+});
+});
+function toggleService(card){card.querySelector('.service-expand').classList.toggle('open')}
+var currentSlide=0,totalSlides=4,slideInterval;
+function goToSlide(n){
+currentSlide=n;
+document.querySelectorAll('.testimonial-slide').forEach(function(s,i){s.classList.toggle('active',i===n)});
+document.querySelectorAll('.testimonial-dots .dot').forEach(function(d,i){d.classList.toggle('active',i===n)});
+}
+function nextSlide(){goToSlide((currentSlide+1)%totalSlides)}
+slideInterval=setInterval(nextSlide,4000);
+var carousel=document.getElementById('testimonialCarousel');
+var startX=0,dragging=false;
+carousel.addEventListener('mousedown',function(e){dragging=true;startX=e.clientX;clearInterval(slideInterval)});
+carousel.addEventListener('mouseup',function(e){if(dragging){var diff=e.clientX-startX;if(Math.abs(diff)>50){diff<0?nextSlide():goToSlide((currentSlide-1+totalSlides)%totalSlides)}dragging=false;slideInterval=setInterval(nextSlide,4000)}});
+carousel.addEventListener('touchstart',function(e){startX=e.touches[0].clientX;clearInterval(slideInterval)});
+carousel.addEventListener('touchend',function(e){var diff=e.changedTouches[0].clientX-startX;if(Math.abs(diff)>50){diff<0?nextSlide():goToSlide((currentSlide-1+totalSlides)%totalSlides)}slideInterval=setInterval(nextSlide,4000)});
+var statsCounted=false;
+function countStats(){
+if(statsCounted)return;statsCounted=true;
+document.querySelectorAll('.stat .num').forEach(function(el){
+var target=+el.dataset.target,current=0,step=target/60;
+var timer=setInterval(function(){current+=step;if(current>=target){current=target;clearInterval(timer)}el.textContent=Math.round(current)+(target>=100?'+':target===98?'%':'')},25);
+});
+}
+function openLightbox(src){document.getElementById('lightboxImg').src=src;document.getElementById('lightbox').classList.add('open')}
+function closeLightbox(){document.getElementById('lightbox').classList.remove('open')}
+function buildGrid(containerId,folder,prefix,count,ext,category,aspect){
+var grid=document.getElementById(containerId);if(!grid)return;
+grid.innerHTML='';
+var exts={logos:['jpg','jpg','jpg','jpg','jpg','jpg','jpg','png','jpg','png'],banners:['jpg','jpg','png','jpg','jpg','png','jpg','jpg']};
+for(var i=1;i<=count;i++){
+var extension=ext;
+if(folder==='logos'&&exts.logos[i-1])extension=exts.logos[i-1];
+if(folder==='banners'&&exts.banners[i-1])extension=exts.banners[i-1];
+var src='./'+folder+'/'+prefix+'-'+i+'.'+extension;
+var card=document.createElement('div');
+card.className='grid-card';
+if(aspect==='square')card.style.aspectRatio='1/1';
+else if(aspect==='landscape')card.style.aspectRatio='16/9';
+card.innerHTML='<div class="card-badge">'+category+'</div><img src="'+src+'" alt="'+category+' '+i+'" onerror="this.parentElement.classList.add(\'img-failed\')" style="width:100%;height:100%;object-fit:cover"><div class="card-overlay"><span>'+category+'</span><span class="arrow" style="color:var(--accent);margin-top:4px">View Full &rarr;</span></div>';
+card.addEventListener('click',function(){var img=this.querySelector('img');if(img&&img.src)openLightbox(img.src)});
+grid.appendChild(card);
+}
+}
+buildGrid('logosGrid','logos','logo',10,'jpg','Logo','square');
+buildGrid('bannersGrid','banners','banner',8,'jpg','Banner','landscape');
+buildGrid('brandingGrid','brand-assets','brand',16,'jpg','Brand','');
+var canvas=document.getElementById('heroCanvas'),ctx=canvas.getContext('2d');
+var particles=[],mouseCanvas={x:0,y:0};
+function resizeCanvas(){canvas.width=canvas.offsetWidth;canvas.height=canvas.offsetHeight}
+resizeCanvas();window.addEventListener('resize',resizeCanvas);
+canvas.addEventListener('mousemove',function(e){var r=canvas.getBoundingClientRect();mouseCanvas.x=e.clientX-r.left;mouseCanvas.y=e.clientY-r.top});
+function Particle(){this.reset()}
+Particle.prototype.reset=function(){this.x=Math.random()*canvas.width;this.y=Math.random()*canvas.height;this.vx=(Math.random()-.5)*.4;this.vy=(Math.random()-.5)*.4;this.r=Math.random()*2+.5;this.alpha=Math.random()*.5+.2};
+Particle.prototype.update=function(){
+this.x+=this.vx;this.y+=this.vy;
+var dx=this.x-mouseCanvas.x,dy=this.y-mouseCanvas.y,dist=Math.sqrt(dx*dx+dy*dy);
+if(dist<120){var f=.5*(120-dist)/120;this.vx+=dx/dist*f;this.vy+=dy/dist*f}
+this.vx*=.99;this.vy*=.99;
+if(this.x<0||this.x>canvas.width)this.vx*=-1;
+if(this.y<0||this.y>canvas.height)this.vy*=-1;
+};
+Particle.prototype.draw=function(){ctx.beginPath();ctx.arc(this.x,this.y,this.r,0,Math.PI*2);ctx.fillStyle='rgba(230,57,70,'+this.alpha+')';ctx.fill()};
+for(var i=0;i<200;i++)particles.push(new Particle());
+function animateParticles(){
+ctx.clearRect(0,0,canvas.width,canvas.height);
+particles.forEach(function(p){p.update();p.draw()});
+for(var i=0;i<particles.length;i++){for(var j=i+1;j<particles.length;j++){
+var dx=particles[i].x-particles[j].x,dy=particles[i].y-particles[j].y,d=Math.sqrt(dx*dx+dy*dy);
+if(d<100){ctx.beginPath();ctx.moveTo(particles[i].x,particles[i].y);ctx.lineTo(particles[j].x,particles[j].y);ctx.strokeStyle='rgba(230,57,70,'+(0.1*(1-d/100))+')';ctx.stroke()}
+}}
+requestAnimationFrame(animateParticles);
+}
+animateParticles();
+gsap.registerPlugin(ScrollTrigger);
+function initHeroAnim(){
+var tl=gsap.timeline({delay:.3});
+tl.to('.hero-eyebrow',{opacity:1,y:0,duration:.8,ease:'power3.out'})
+.to('.hero-title',{opacity:1,y:0,duration:.8,ease:'power3.out'},'-=.4')
+.to('.hero-desc',{opacity:1,y:0,duration:.8,ease:'power3.out'},'-=.4')
+.to('.hero-btns',{opacity:1,y:0,duration:.8,ease:'power3.out'},'-=.4')
+.to('.scroll-indicator',{opacity:1,duration:.6},'-=.2');
+}
+initHeroAnim();
+gsap.to('.hero-title',{yPercent:30,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('.hero-desc',{yPercent:50,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+function initPageAnimations(page){
+ScrollTrigger.getAll().forEach(function(t){t.kill()});
+if(page==='home'){
+gsap.to('.hero-title',{yPercent:30,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+gsap.to('.hero-desc',{yPercent:50,ease:'none',scrollTrigger:{trigger:'.hero',start:'top top',end:'bottom top',scrub:true}});
+}
+gsap.utils.toArray('#page-'+page+' .section, #page-'+page+' .portfolio-page, #page-'+page+' .about-page, #page-'+page+' .stats-section').forEach(function(section){
+gsap.from(section,{opacity:0,y:60,duration:1,ease:'power3.out',scrollTrigger:{trigger:section,start:'top 80%'}});
+});
+if(page==='home'){statsCounted=false;ScrollTrigger.create({trigger:'.stats-section',start:'top 80%',onEnter:countStats})}
+gsap.utils.toArray('#page-'+page+' .grid-card').forEach(function(card,i){
+gsap.from(card,{opacity:0,y:40,scale:.95,duration:.6,delay:i*.05,ease:'power3.out',scrollTrigger:{trigger:card,start:'top 90%'}});
+});
+gsap.utils.toArray('#page-'+page+' .section-title').forEach(function(title){
+ScrollTrigger.create({trigger:title,start:'top 85%',onEnter:function(){scrambleText(title)}});
+});
+ScrollTrigger.refresh();
+}
+function scrambleText(el){
+var original=el.textContent,chars='ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz',iteration=0;
+var interval=setInterval(function(){
+el.textContent=original.split('').map(function(c,i){if(i<iteration)return original[i];return c===' '?' ':chars[Math.floor(Math.random()*chars.length)]}).join('');
+iteration+=0.5;if(iteration>=original.length)clearInterval(interval);
+},30);
+}
+setTimeout(function(){initPageAnimations('home')},500);
+var angle=0;
+function rotateGradient(){angle=(angle+1)%360;document.documentElement.style.setProperty('--angle',angle+'deg');requestAnimationFrame(rotateGradient)}
+rotateGradient();
+</script>
+</body>
+</html>

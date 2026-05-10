@@ -1,0 +1,143 @@
+.section {
+  padding: 120px 0;
+  background-color: var(--bg); /* Theme aware */
+  color: var(--text);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: clamp(32px, 5vw, 64px);
+  font-weight: 800;
+  line-height: 1.1;
+  margin-bottom: 24px;
+}
+
+.subtitle {
+  font-size: 18px;
+  color: var(--text-secondary);
+  margin-bottom: 40px;
+}
+
+.cta {
+  background-color: var(--accent);
+  color: white;
+  padding: 18px 40px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 16px;
+  transition: var(--transition-base);
+}
+
+.cta:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 20px var(--accent-glow);
+}
+
+.partners {
+  margin-top: 100px;
+}
+
+.partners h3 {
+  font-size: 16px;
+  color: var(--text-secondary);
+  margin-bottom: 24px;
+}
+
+.logoGrid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.partnerLogo {
+  background-color: var(--bg-surface);
+  color: var(--accent);
+  padding: 15px;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: 800;
+  border: 1px solid var(--border);
+}
+
+.cards {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.card {
+  background-color: var(--bg-surface);
+  border-radius: 24px;
+  padding: 40px;
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.cardInner {
+  display: flex;
+  gap: 24px;
+}
+
+.avatar {
+  width: 120px;
+  height: 120px;
+  background-color: var(--accent-glow);
+  color: var(--accent);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 40px;
+  flex-shrink: 0;
+}
+
+.info {
+  flex: 1;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.header h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+}
+
+.header p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.text {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+  }
+}

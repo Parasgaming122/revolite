@@ -1,0 +1,120 @@
+.section {
+  padding: 0 0 80px 0; /* Set top padding to 0 to eliminate gap */
+  background-color: var(--bg);
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 80px;
+  padding: 0 48px;
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  color: var(--accent);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 16px;
+}
+
+.title {
+  font-size: clamp(32px, 5vw, 64px);
+  margin-bottom: 16px;
+  color: var(--text);
+  font-weight: 800;
+}
+
+.accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.subtitle {
+  font-size: 16px;
+  color: var(--text-secondary);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.sliderContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.track {
+  display: flex;
+  gap: 30px;
+  width: max-content;
+}
+
+.card {
+  position: relative;
+  border-radius: 20px;
+  overflow: hidden;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  transition: transform 0.4s ease;
+}
+
+.card:hover {
+  transform: translateY(-10px);
+  border-color: var(--accent);
+}
+
+.logo {
+  width: 300px;
+  height: 300px;
+}
+
+.branding {
+  width: 500px;
+  height: 280px;
+}
+
+.card img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.6s ease;
+}
+
+.card:hover img {
+  transform: scale(1.05);
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+  display: flex;
+  align-items: flex-end;
+  padding: 24px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.category {
+  color: white;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  background-color: var(--accent);
+  padding: 4px 12px;
+  border-radius: 20px;
+}
+
+@media (max-width: 768px) {
+  .logo { width: 200px; height: 200px; }
+  .branding { width: 300px; height: 180px; }
+  .section { padding: 40px 0; }
+  .header { margin-bottom: 40px; }
+}

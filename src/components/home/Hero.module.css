@@ -1,0 +1,166 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  padding-top: 80px; /* Reduced to eliminate gap */
+  padding-bottom: 40px;
+  overflow: hidden;
+  background-color: var(--bg);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+}
+
+.content {
+  max-width: 1000px;
+  margin-bottom: 40px;
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--accent);
+  margin-bottom: 24px;
+  display: block;
+}
+
+.title {
+  font-size: clamp(48px, 8vw, 110px);
+  font-weight: 900;
+  line-height: 0.9;
+  color: var(--text);
+  margin-bottom: 40px;
+  letter-spacing: -0.04em;
+}
+
+.highlight {
+  color: var(--accent);
+  position: relative;
+}
+
+.description {
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.4;
+  color: var(--text-secondary);
+  max-width: 600px;
+  margin-bottom: 48px;
+}
+
+.actions {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.primaryBtn {
+  background-color: var(--accent);
+  color: white;
+  padding: 20px 40px;
+  border-radius: 12px;
+  font-weight: 700;
+  font-size: 18px;
+  transition: var(--transition-base);
+  box-shadow: 0 10px 30px var(--accent-glow);
+}
+
+.primaryBtn:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 20px 40px var(--accent-glow);
+}
+
+.secondaryBtn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  font-weight: 700;
+  color: var(--text);
+  font-size: 18px;
+  transition: var(--transition-base);
+}
+
+.secondaryBtn:hover {
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+.playIcon {
+  width: 50px;
+  height: 50px;
+  border: 2px solid var(--border);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.visualGrid {
+  position: absolute;
+  top: 10%;
+  right: -5%;
+  width: 50%;
+  height: 80%;
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  gap: 24px;
+  transform: perspective(1000px) rotateY(-20deg);
+  pointer-events: none;
+}
+
+.card {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg-surface);
+  border: 1px solid var(--border);
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 40px 100px rgba(0,0,0,0.2);
+}
+
+.cardImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+
+.card1 { transform: translateY(40px); }
+.card2 { transform: translateY(-40px); }
+
+@media (max-width: 1200px) {
+  .visualGrid {
+    display: none;
+  }
+  .content {
+    max-width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .actions {
+    justify-content: center;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 100px;
+  }
+  .actions {
+    flex-direction: column;
+    width: 100%;
+  }
+  .primaryBtn {
+    width: 100%;
+  }
+}

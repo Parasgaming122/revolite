@@ -1,0 +1,149 @@
+.footer {
+  background-color: var(--bg-surface);
+  padding: 100px 0 40px;
+  border-top: 1px solid var(--border);
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1fr 1.5fr;
+  gap: 60px;
+  margin-bottom: 80px;
+}
+
+.logo {
+  height: 60px; /* Enlarged footer logo */
+  margin-bottom: 30px;
+}
+
+.tagline {
+  color: var(--text-secondary);
+  font-size: 15px;
+  max-width: 300px;
+  margin-bottom: 32px;
+}
+
+.socials {
+  display: flex;
+  gap: 16px;
+}
+
+.socials a {
+  width: 40px;
+  height: 40px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text);
+  transition: var(--transition-base);
+}
+
+.socials a:hover {
+  background-color: var(--accent);
+  color: white;
+  border-color: var(--accent);
+  transform: translateY(-5px);
+}
+
+.links h3, .contact h3 {
+  font-family: var(--font-heading);
+  font-size: 16px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+}
+
+.links ul {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.links button, .links a {
+  font-size: 15px;
+  color: var(--text-secondary);
+  transition: var(--transition-base);
+  text-align: left;
+  display: block;
+}
+
+.links button:hover, .links a:hover {
+  color: var(--accent);
+  transform: translateX(5px);
+}
+
+.contact p {
+  color: var(--text-secondary);
+  margin-bottom: 12px;
+}
+
+.discordList {
+  list-style: none;
+  padding: 0;
+  margin-top: 15px;
+}
+
+.discordList li {
+  font-size: 14px;
+  color: var(--accent);
+  font-weight: 600;
+  margin-bottom: 8px;
+  transition: transform 0.3s ease;
+}
+
+.discordList li:hover {
+  transform: translateX(5px);
+}
+
+.bottom {
+  border-top: 1px solid var(--border);
+  padding-top: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bottom p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.legal {
+  display: flex;
+  gap: 24px;
+}
+
+.legal a {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 60px 40px;
+  }
+}
+
+@media (max-width: 640px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .bottom {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+}

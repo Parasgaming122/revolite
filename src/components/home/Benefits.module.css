@@ -1,0 +1,170 @@
+.section {
+  padding: 120px 0;
+  background-color: var(--bg-surface); /* Theme aware */
+}
+
+.container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 0 48px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 100px;
+  align-items: center;
+}
+
+.visual {
+  position: relative;
+}
+
+.mainCard {
+  width: 100%;
+  max-width: 500px;
+  height: 600px;
+  background-color: var(--accent); /* Theme accent */
+  border-radius: 20px;
+  padding: 40px;
+  position: relative;
+  box-shadow: 0 40px 100px var(--accent-glow);
+}
+
+.innerBox {
+  width: 100%;
+  height: 100%;
+  background-color: var(--bg);
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.innerBox img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.9;
+}
+
+.floatingBadge {
+  position: absolute;
+  top: 50%;
+  right: -20px;
+  background-color: var(--bg);
+  color: var(--text);
+  padding: 15px 25px;
+  border-radius: 50px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  border: 1px solid var(--border);
+}
+
+.notif {
+  background-color: var(--accent);
+  color: white;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  position: absolute;
+  top: -10px;
+  right: 0;
+}
+
+.awardCard {
+  position: absolute;
+  bottom: 40px;
+  left: -40px;
+  background-color: var(--bg);
+  padding: 20px 30px;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  box-shadow: 0 15px 40px rgba(0,0,0,0.2);
+  border: 1px solid var(--border);
+}
+
+.awardCard h4 {
+  font-size: 18px;
+  color: var(--text);
+}
+
+.awardCard p {
+  font-size: 14px;
+  color: var(--text-secondary);
+}
+
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--accent);
+  margin-bottom: 24px;
+}
+
+.title {
+  font-size: clamp(32px, 4vw, 56px);
+  font-weight: 800;
+  color: var(--text);
+  line-height: 1.1;
+  margin-bottom: 48px;
+}
+
+.accent {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.points {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.point {
+  display: flex;
+  gap: 24px;
+  align-items: flex-start;
+}
+
+.iconBox {
+  width: 64px;
+  height: 64px;
+  background-color: var(--accent-glow);
+  color: var(--accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0;
+}
+
+.pointText h3 {
+  font-size: 20px;
+  font-weight: 700;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+
+.pointText p {
+  font-size: 16px;
+  color: var(--text-secondary);
+  line-height: 1.6;
+}
+
+@media (max-width: 1024px) {
+  .container {
+    grid-template-columns: 1fr;
+    gap: 80px;
+  }
+  .visual {
+    order: 2;
+  }
+}
