@@ -33,14 +33,20 @@ const Hero = () => {
             <img 
               src="/revolite/Home Decor/Banner/23f91f177810003.64ddb6ef35f66.png" 
               alt="Elite Home Decor Branding" 
-              className={styles.cardImg} 
+              className={styles.cardImg}
+              width="524"
+              height="900"
+              fetchpriority="high"
             />
           </div>
           <div className={`${styles.card} ${styles.card2}`}>
             <img 
               src="/revolite/Apparel & Clothing/Social Media Posts/6be67d238033331.690c810ba9320.jpg" 
               alt="Premium Apparel Social Media" 
-              className={styles.cardImg} 
+              className={styles.cardImg}
+              width="757"
+              height="1080"
+              fetchpriority="high"
             />
           </div>
         </div>

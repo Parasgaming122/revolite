@@ -50,6 +50,9 @@ const PortfolioPage = () => {
                 src={`/revolite/${manifestPath}/${img}`} 
                 alt={img}
                 loading="lazy"
+                decoding="async"
+                width="400"
+                height="400"
               />
               <div className={styles.overlay}>
                 <span>View Full Size</span>
@@ -64,7 +67,13 @@ const PortfolioPage = () => {
           <div className={styles.lightboxBackdrop}></div>
           <div className={styles.lightboxContent} onClick={(e) => e.stopPropagation()}>
             <div className={styles.imageWrapper}>
-              <img src={selectedImage} alt="Fullscreen View" className={styles.fullImage} />
+              <img 
+                src={selectedImage} 
+                alt="Fullscreen View" 
+                className={styles.fullImage}
+                decoding="async"
+                fetchpriority="high"
+              />
             </div>
             <button className={styles.close} onClick={handleClose}>
               <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" width="24" height="24">

@@ -72,7 +72,15 @@ const FeaturedProjects = () => {
           {projects.map((p, i) => (
             <div key={i} className={styles.card}>
               <div className={styles.imageBox}>
-                <img src={p.img} alt={p.title} className={styles.cardImg} />
+                <img 
+                  src={p.img} 
+                  alt={p.title} 
+                  className={styles.cardImg} 
+                  loading="lazy"
+                  decoding="async"
+                  width="400"
+                  height="250"
+                />
               </div>
               <div className={styles.cardInfo}>
                 <h3>{p.title}</h3>

@@ -24,10 +24,18 @@
     <meta property="twitter:description" content="Elite branding studio specializing in premium visual identities and retina-quality design.">
     <meta property="twitter:image" content="/revolite/brand-assets/brand-1.jpg">
 
-    <!-- Fonts -->
+    <!-- Preconnect to critical origins -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    
+    <!-- Optimized Font Loading -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&family=Outfit:wght@400;700;900&display=swap" rel="stylesheet">
+    </noscript>
+
+    <!-- Preload LCP Image Candidate -->
+    <link rel="preload" href="/revolite/brand-assets/brand-1.jpg" as="image" fetchpriority="high">
   </head>
   <body>
     <div id="root"></div>

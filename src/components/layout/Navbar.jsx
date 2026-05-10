@@ -43,7 +43,13 @@ const Navbar = () => {
       <div className={styles.container}>
         <div className={styles.logo}>
           <Link to="/">
-            <img src="/RETINA PNG GOOGLE SIZE.png" alt="REVO-LITE" />
+            <img 
+              src="/RETINA PNG GOOGLE SIZE.png" 
+              alt="REVO-LITE" 
+              width="64" 
+              height="32" 
+              style={{ height: '32px', width: 'auto' }}
+            />
           </Link>
         </div>
 

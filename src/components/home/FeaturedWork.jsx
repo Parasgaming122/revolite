@@ -63,6 +63,9 @@ const FeaturedWork = () => {
         src={src} 
         alt="Featured Work" 
         loading="lazy"
+        width={type === 'logo' ? 300 : 500}
+        height={type === 'logo' ? 300 : 280}
+        decoding="async"
       />
       <div className={styles.overlay}>
         <div className={styles.category}>{type}</div>
