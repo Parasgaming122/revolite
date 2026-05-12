@@ -3,12 +3,11 @@
   min-height: 100vh;
   display: flex;
   align-items: center;
-  padding-top: 80px; /* Reduced to eliminate gap */
+  padding-top: 80px;
   padding-bottom: 40px;
   overflow: hidden;
   background-color: var(--bg);
 }
-
 .container {
   max-width: 1440px;
   margin: 0 auto;
@@ -17,12 +16,10 @@
   z-index: 2;
   width: 100%;
 }
-
 .content {
   max-width: 1000px;
   margin-bottom: 40px;
 }
-
 .eyebrow {
   font-family: var(--font-heading);
   font-size: 14px;
@@ -33,35 +30,30 @@
   margin-bottom: 24px;
   display: block;
 }
-
 .title {
-  font-size: clamp(48px, 8vw, 110px);
+  font-size: clamp(40px, 8vw, 110px);
   font-weight: 900;
   line-height: 0.9;
   color: var(--text);
   margin-bottom: 40px;
   letter-spacing: -0.04em;
 }
-
 .highlight {
   color: var(--accent);
   position: relative;
 }
-
 .description {
-  font-size: clamp(18px, 2vw, 24px);
+  font-size: clamp(16px, 2vw, 24px);
   line-height: 1.4;
   color: var(--text-secondary);
   max-width: 600px;
   margin-bottom: 48px;
 }
-
 .actions {
   display: flex;
   gap: 20px;
   align-items: center;
 }
-
 .primaryBtn {
   background-color: var(--accent);
   color: white;
@@ -71,13 +63,15 @@
   font-size: 18px;
   transition: var(--transition-base);
   box-shadow: 0 10px 30px var(--accent-glow);
+  min-height: 48px;
 }
-
 .primaryBtn:hover {
   transform: translateY(-5px);
   box-shadow: 0 20px 40px var(--accent-glow);
 }
-
+.primaryBtn:active {
+  transform: translateY(-2px);
+}
 .secondaryBtn {
   display: flex;
   align-items: center;
@@ -86,13 +80,13 @@
   color: var(--text);
   font-size: 18px;
   transition: var(--transition-base);
+  min-height: 48px;
+  padding: 8px 0;
 }
-
 .secondaryBtn:hover {
   color: var(--accent);
   transform: translateX(5px);
 }
-
 .playIcon {
   width: 50px;
   height: 50px;
@@ -101,8 +95,8 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  flex-shrink: 0;
 }
-
 .visualGrid {
   position: absolute;
   top: 10%;
@@ -115,7 +109,6 @@
   transform: perspective(1000px) rotateY(-20deg);
   pointer-events: none;
 }
-
 .card {
   width: 100%;
   height: 100%;
@@ -125,21 +118,17 @@
   overflow: hidden;
   box-shadow: 0 40px 100px rgba(0,0,0,0.2);
 }
-
 .cardImg {
   width: 100%;
   height: 100%;
   object-fit: cover;
   opacity: 0.8;
 }
-
 .card1 { transform: translateY(40px); }
 .card2 { transform: translateY(-40px); }
 
 @media (max-width: 1200px) {
-  .visualGrid {
-    display: none;
-  }
+  .visualGrid { display: none; }
   .content {
     max-width: 100%;
     text-align: center;
@@ -147,20 +136,19 @@
     flex-direction: column;
     align-items: center;
   }
-  .actions {
-    justify-content: center;
-  }
+  .actions { justify-content: center; }
 }
-
 @media (max-width: 768px) {
-  .hero {
-    padding-top: 100px;
-  }
-  .actions {
-    flex-direction: column;
-    width: 100%;
-  }
-  .primaryBtn {
-    width: 100%;
-  }
+  .hero { padding-top: 100px; min-height: auto; padding-bottom: 60px; }
+  .container { padding: 0 20px; }
+  .actions { flex-direction: column; width: 100%; }
+  .primaryBtn { width: 100%; text-align: center; padding: 18px 32px; font-size: 16px; }
+  .secondaryBtn { font-size: 16px; }
+  .description { margin-bottom: 32px; }
+  .title { margin-bottom: 24px; }
+}
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .title { font-size: clamp(32px, 10vw, 48px); }
+  .eyebrow { font-size: 12px; letter-spacing: 0.15em; }
 }

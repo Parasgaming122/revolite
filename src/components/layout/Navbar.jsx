@@ -1,27 +1,21 @@
 import React, { useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
+import { useTheme } from '../../context/ThemeContext';
 import styles from './Navbar.module.css';
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light');
+  const { theme, toggleTheme } = useTheme();
   const location = useLocation();
 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
-    document.documentElement.setAttribute('data-theme', theme);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
-  }, [theme]);
-
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light';
-    setTheme(newTheme);
-    localStorage.setItem('theme', newTheme);
-  };
+  }, []);
 
   const isActive = (path) => {
     if (path === '/' && location.pathname === '/') return true;
@@ -42,8 +36,8 @@ const Navbar = () => {
     <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ''}`}>
       <div className={styles.container}>
         <div className={styles.logo}>
-          <Link to="/">
-            <img src="/RETINA PNG GOOGLE SIZE.png" alt="REVO-LITE" />
+          <Link to="/" tabIndex="-1">
+            <img src="/logo.png" alt="REVO-LITE" draggable="false" style={{ pointerEvents: 'none' }} />
           </Link>
         </div>
 

@@ -184,6 +184,17 @@
   }
 }
 
+@media (max-width: 768px) {
+  .page { padding-top: 100px; padding-bottom: 60px; }
+  .container { padding: 0 20px; }
+  .header { margin-bottom: 40px; }
+  .industryCard:hover { transform: none; }
+  .subCard:hover { transform: none; }
+  .cardContent { padding: 20px; }
+  .subContent { padding: 16px; }
+  .backBtn { min-height: 48px; margin-bottom: 24px; }
+}
+
 @media (max-width: 640px) {
   .industryGrid, .grid {
     grid-template-columns: 1fr;
@@ -191,3 +202,10 @@
   .cardImage { height: 200px; }
   .subImage { height: 150px; }
 }
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .industryGrid { gap: 16px; }
+  .grid { gap: 16px; }
+}
+

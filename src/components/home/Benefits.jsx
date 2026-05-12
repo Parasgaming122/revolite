@@ -39,7 +39,7 @@ const Benefits = () => {
         <div className={styles.visual}>
           <div className={styles.mainCard}>
             <div className={styles.innerBox}>
-              <img src="/revolite/banners/banner-1.jpg" alt="Luxury Branding" />
+              <img src="/revolite/banners/banner-1.jpg" alt="Luxury Branding" loading="lazy" decoding="async" />
             </div>
             <div className={styles.floatingBadge}>
               <span className={styles.badgeIcon}>✦</span>

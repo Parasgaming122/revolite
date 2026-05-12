@@ -177,3 +177,24 @@
   .steps { grid-template-columns: 1fr; }
   .container { padding: 0 24px; }
 }
+
+@media (max-width: 768px) {
+  .page { padding-top: 100px; padding-bottom: 60px; }
+  .container { padding: 0 20px; }
+  .header { margin-bottom: 60px; }
+  .section { padding: 60px 0; }
+  .storySection { padding: 60px 0; }
+  .process { padding: 60px 0; }
+  .centeredTitle { margin-bottom: 40px; }
+  .step { padding: 28px; }
+  .step:hover { transform: none; }
+  .stats { gap: 32px; }
+  .visual { border-radius: 16px; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+  .step { padding: 20px; }
+  .statNum { font-size: 32px; }
+}
+

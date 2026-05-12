@@ -178,12 +178,21 @@
 }
 
 @media (max-width: 768px) {
-  .container { padding: 0 24px; }
-  .lightbox { padding: 20px; }
+  .container { padding: 0 20px; }
+  .page { padding-top: 100px; }
+  .lightbox { padding: 16px; }
   .close {
-    top: 20px;
-    right: 20px;
-    width: 44px;
-    height: 44px;
+    top: 16px;
+    right: 16px;
+    width: 48px;
+    height: 48px;
   }
+  .close:hover { transform: none; }
+  .fullImage { border-radius: 8px; }
+  .empty { padding: 120px 20px; }
 }
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+}
+

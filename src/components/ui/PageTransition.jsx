@@ -1,29 +1,14 @@
 import React, { useEffect, useRef } from 'react';
-import gsap from 'gsap';
 import styles from './PageTransition.module.css';
 
 const PageTransition = ({ isActive }) => {
   const overlayRef = useRef(null);
 
-  useEffect(() => {
-    if (isActive) {
-      gsap.to(overlayRef.current, {
-        x: '0%',
-        duration: 0.6,
-        ease: 'power4.inOut'
-      });
-    } else {
-      gsap.to(overlayRef.current, {
-        x: '100%',
-        duration: 0.6,
-        ease: 'power4.inOut',
-        delay: 0.1
-      });
-    }
-  }, [isActive]);
-
+  // We use a CSS-driven opacity + scale transition for a more "premium" feel
+  // and to avoid the "blue flash" associated with the sliding panel.
+  
   return (
-    <div className={styles.transitionContainer}>
+    <div className={`${styles.transitionContainer} ${isActive ? styles.active : ''}`}>
       <div className={styles.overlay} ref={overlayRef}>
         <div className={styles.content}>
           <div className={styles.logo}>REVO-LITE</div>

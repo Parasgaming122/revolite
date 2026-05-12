@@ -18,7 +18,7 @@
 }
 
 .logo {
-  height: 60px; /* Enlarged footer logo */
+  height: 80px; /* Enlarged footer logo */
   margin-bottom: 30px;
 }
 
@@ -137,6 +137,18 @@
   }
 }
 
+@media (max-width: 768px) {
+  .footer { padding: 60px 0 30px; }
+  .container { padding: 0 20px; }
+  .grid { margin-bottom: 40px; gap: 40px 24px; }
+  .socials a {
+    width: 48px;
+    height: 48px;
+  }
+  .socials a:hover { transform: none; }
+  .links button:hover, .links a:hover { transform: none; }
+}
+
 @media (max-width: 640px) {
   .grid {
     grid-template-columns: 1fr;
@@ -147,3 +159,8 @@
     text-align: center;
   }
 }
+
+@media (max-width: 480px) {
+  .container { padding: 0 16px; }
+}
+
