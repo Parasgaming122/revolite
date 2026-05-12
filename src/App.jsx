@@ -18,12 +18,23 @@ const PortfolioPage = lazy(() => import('./components/portfolio/PortfolioPage'))
 const PortfolioOverview = lazy(() => import('./components/portfolio/PortfolioOverview'));
 const AboutPage = lazy(() => import('./components/about/AboutPage'));
 
-// Scroll to top on every route change
-const ScrollToTop = () => {
-  const { pathname } = useLocation();
+// Scroll to top and trigger transition on route change
+const RouteManager = ({ setIsTransitioning }) => {
+  const location = useLocation();
+  
   useEffect(() => {
+    // Scroll to top
     window.scrollTo(0, 0);
-  }, [pathname]);
+    
+    // Trigger the staggered blue transition
+    setIsTransitioning(true);
+    const timer = setTimeout(() => {
+      setIsTransitioning(false);
+    }, 800); // 800ms matches the 35% faster cinematic slide
+
+    return () => clearTimeout(timer);
+  }, [location.pathname, setIsTransitioning]);
+  
   return null;
 };
 
@@ -31,23 +42,28 @@ const ScrollToTop = () => {
 const Loader = () => (
   <div style={{ 
     height: '100vh', 
+    width: '100vw',
     display: 'flex', 
     alignItems: 'center', 
     justifyContent: 'center', 
-    backgroundColor: 'var(--bg)', 
-    color: 'var(--accent)',
+    backgroundColor: '#1E3A8A', // Deep blue base
+    color: 'white',
     fontFamily: 'var(--font-heading)',
-    fontSize: '24px',
-    fontWeight: '800'
+    fontSize: '32px',
+    fontWeight: '900',
+    letterSpacing: '0.3em',
+    zIndex: 20000,
+    position: 'fixed',
+    top: 0,
+    left: 0
   }}>
     REVO-LITE
   </div>
 );
 
 const HomePage = () => {
-  const navigate = useNavigate();
   return (
-    <Suspense fallback={<Loader />}>
+    <>
       <Hero />
       <Ticker />
       <FeaturedWork />
@@ -56,26 +72,17 @@ const HomePage = () => {
       <FeaturedProjects />
       <ModernTestimonials />
       <CTA />
-    </Suspense>
+    </>
   );
 };
 
 function App() {
   const [isTransitioning, setIsTransitioning] = useState(false);
 
-  useEffect(() => {
-    const handleRouteChange = () => {
-      setIsTransitioning(true);
-      setTimeout(() => setIsTransitioning(false), 800);
-    };
-    window.addEventListener('hashchange', handleRouteChange);
-    return () => window.removeEventListener('hashchange', handleRouteChange);
-  }, []);
-
   return (
     <Router>
       <div className="app-container">
-        <ScrollToTop />
+        <RouteManager setIsTransitioning={setIsTransitioning} />
         <CustomCursor />
         <PageTransition isActive={isTransitioning} />
         <Navbar />

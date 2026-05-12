@@ -1,20 +1,29 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useState } from 'react';
 import styles from './PageTransition.module.css';
 
 const PageTransition = ({ isActive }) => {
-  const overlayRef = useRef(null);
+  const [shouldRender, setShouldRender] = useState(false);
 
-  // We use a CSS-driven opacity + scale transition for a more "premium" feel
-  // and to avoid the "blue flash" associated with the sliding panel.
-  
+  useEffect(() => {
+    if (isActive) {
+      setShouldRender(true);
+    } else {
+      // Small delay before unmounting to let the exit animation finish
+      const timer = setTimeout(() => setShouldRender(false), 1000);
+      return () => clearTimeout(timer);
+    }
+  }, [isActive]);
+
+  if (!shouldRender && !isActive) return null;
+
   return (
-    <div className={`${styles.transitionContainer} ${isActive ? styles.active : ''}`}>
-      <div className={styles.overlay} ref={overlayRef}>
+    <div className={styles.container}>
+      <div className={`${styles.panel} ${styles.panel1} ${isActive ? styles.active : styles.exit}`}></div>
+      <div className={`${styles.panel} ${styles.panel2} ${isActive ? styles.active : styles.exit}`}></div>
+      <div className={`${styles.panel} ${styles.panel3} ${isActive ? styles.active : styles.exit}`}>
         <div className={styles.content}>
           <div className={styles.logo}>REVO-LITE</div>
-          <div className={styles.loader}>
-            <div className={styles.bar}></div>
-          </div>
+          <div className={styles.loader}></div>
         </div>
       </div>
     </div>
