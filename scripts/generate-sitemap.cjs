@@ -10,7 +10,7 @@ const path = require('path');
 
 // --- Parse CLI args ---
 const args = process.argv.slice(2);
-let BASE_URL = 'https://parasgaming122.github.io/revolite'; // default
+let BASE_URL = 'https://revolite.works'; // default
 
 const baseUrlIdx = args.indexOf('--base-url');
 if (baseUrlIdx !== -1 && args[baseUrlIdx + 1]) {
@@ -18,6 +18,9 @@ if (baseUrlIdx !== -1 && args[baseUrlIdx + 1]) {
 }
 
 // --- Static routes ---
+// HashRouter: all routes are hash-based (e.g. https://example.com/#/portfolio)
+const USE_HASH = true;
+
 const staticRoutes = [
   { path: '/', priority: '1.0', changefreq: 'weekly' },
   { path: '/portfolio', priority: '0.9', changefreq: 'weekly' },
@@ -72,7 +75,7 @@ function generateSitemap() {
   const urls = allRoutes
     .map(
       (route) => `  <url>
-    <loc>${escapeXml(BASE_URL)}${escapeXml(route.path)}</loc>
+    <loc>${escapeXml(BASE_URL)}${USE_HASH ? '/#' : ''}${route.path === '/' ? '' : escapeXml(route.path)}</loc>
     <lastmod>${today}</lastmod>
     <changefreq>${route.changefreq}</changefreq>
     <priority>${route.priority}</priority>
