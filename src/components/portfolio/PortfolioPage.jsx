@@ -11,7 +11,13 @@ const PortfolioPage = () => {
   // Determine manifest path from URL params
   // If industry exists, path is "industry/subcategory"
   // If only subcategory exists (Generic Assets), path is just "subcategory"
-  const manifestPath = industry ? `${industry}/${subcategory}` : subcategory;
+  // Special case: "Demo Website" is a top-level category
+  const isTopLevelCategory = subcategory && ['logos', 'banners', 'brand-assets', 'Demo%20Website', 'Demo Website'].includes(decodeURIComponent(subcategory));
+  const decodedSubcategory = subcategory ? decodeURIComponent(subcategory) : subcategory;
+  const manifestPath = industry ? `${industry}/${decodedSubcategory}` : decodedSubcategory;
+
+  const displayTitle = isTopLevelCategory ? decodedSubcategory : (decodedSubcategory || industry);
+  const displayEyebrow = isTopLevelCategory ? 'Portfolio' : (industry || 'Generic');
 
   useEffect(() => {
     const folderImages = manifest[manifestPath] || [];
@@ -33,8 +39,8 @@ const PortfolioPage = () => {
     <div className={styles.page}>
       <header className={styles.header}>
         <div className={styles.container}>
-          <div className={styles.eyebrow}>Portfolio / {industry || 'Generic'}</div>
-          <h1 className={styles.title}>{subcategory || industry}</h1>
+          <div className={styles.eyebrow}>Portfolio / {displayEyebrow}</div>
+          <h1 className={styles.title}>{displayTitle}</h1>
         </div>
       </header>
 
@@ -72,7 +78,7 @@ const PortfolioPage = () => {
               </svg>
             </button>
             <div className={styles.imageMeta}>
-              <span>{subcategory} — REVO-LITE Retina Quality</span>
+              <span>{displayTitle} — REVO-LITE Retina Quality</span>
             </div>
           </div>
         </div>
