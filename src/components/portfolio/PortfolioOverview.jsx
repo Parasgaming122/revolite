@@ -40,6 +40,10 @@ const PortfolioOverview = () => {
     'Generic Assets': {
       subs: ['logos', 'banners', 'brand-assets'],
       img: '/revolite/logos/logo-1.jpg'
+    },
+    'Demo Website': {
+      subs: ['Demo Website'],
+      img: '/revolite/Demo Website/westbourne.jpg'
     }
   };
 
@@ -68,8 +72,14 @@ const PortfolioOverview = () => {
   const handleSubcategoryClick = (sub) => {
     if (selectedIndustry === 'Generic Assets') {
       navigate(`/portfolio/${sub}`);
-    } else {
+    } else if (selectedIndustry === 'Demo Website') {
+      navigate(`/portfolio/Demo%20Website`);
+    } else if (selectedIndustry && subcategoryImages[sub]) {
+      // For industries with subcategories, use industry/subcategory format
       navigate(`/portfolio/${selectedIndustry}/${sub}`);
+    } else {
+      // Fallback for unknown cases
+      navigate(`/portfolio/${sub}`);
     }
   };
 

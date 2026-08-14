@@ -38,12 +38,22 @@ const Footer = () => {
           </div>
 
           <div className={styles.contact}>
-            <h3>Direct Reach</h3>
-            <p>Connect on Discord:</p>
-            <ul className={styles.discordList}>
-              <li>alexajones24</li>
-              <li>emilysmith18</li>
-              <li>valerieatelier</li>
+            <h3>Get in Touch</h3>
+            <p>Connect with us:</p>
+            <ul className={styles.contactList}>
+              <li>
+                <a href="https://linkedin.com/company/revo-lite?trk=public_jobs_topcard_logo" target="_blank" rel="noopener noreferrer">
+                  LinkedIn
+                </a>
+              </li>
+              <li>
+                <a href="tel:+18178560456">+1 817 856 0456</a>
+              </li>
+              <li>
+                <a href="https://wa.me/923030912358" target="_blank" rel="noopener noreferrer">
+                  Message Revolite on WhatsApp
+                </a>
+              </li>
             </ul>
           </div>
         </div>
