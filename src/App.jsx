@@ -16,6 +16,7 @@ const ModernTestimonials = lazy(() => import('./components/home/ModernTestimonia
 const CTA = lazy(() => import('./components/home/CTA'));
 const PortfolioPage = lazy(() => import('./components/portfolio/PortfolioPage'));
 const PortfolioOverview = lazy(() => import('./components/portfolio/PortfolioOverview'));
+const DemoWebsites = lazy(() => import('./components/portfolio/DemoWebsites'));
 const AboutPage = lazy(() => import('./components/about/AboutPage'));
 
 // Scroll to top and trigger transition on route change
@@ -93,6 +94,7 @@ function App() {
               <Route path="/portfolio" element={<PortfolioOverview />} />
               <Route path="/portfolio/:industry/:subcategory" element={<PortfolioPage />} />
               <Route path="/portfolio/:subcategory" element={<PortfolioPage />} />
+              <Route path="/demo-websites" element={<DemoWebsites />} />
               <Route path="/about" element={<AboutPage />} />
               <Route path="*" element={<HomePage />} />
             </Routes>
