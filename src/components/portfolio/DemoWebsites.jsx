@@ -17,6 +17,16 @@ const DemoWebsites = () => {
     'westbourne.jpg': 'Westbourne'
   };
 
+  const websiteUrls = {
+    'allbirds.jpg': 'https://www.allbirds.com/',
+    'babocush.jpg': 'https://www.babocush.com/',
+    'mnml.jpg': 'https://mnml.la/',
+    'oishii.jpg': 'https://oishii.com/',
+    'sokoglam.jpg': 'https://sokoglam.com/',
+    'supernaturalkitchen.jpg': 'https://www.supernaturalkitchen.com/contact-us',
+    'westbourne.jpg': 'https://westbourne.com/'
+  };
+
   const handleClose = () => setSelectedImage(null);
 
   if (demoWebsites.length === 0) {
@@ -41,25 +51,30 @@ const DemoWebsites = () => {
 
       <div className={styles.container}>
         <div className={styles.grid}>
-          {demoWebsites.map((img, index) => (
-            <div 
-              key={index} 
-              className={styles.card}
-              onClick={() => setSelectedImage(`/revolite/Demo Website/${img}`)}
-            >
-              <div className={styles.imageWrapper}>
-                <img 
-                  src={`/revolite/Demo Website/${img}`} 
-                  alt={websiteNames[img] || img}
-                  loading="lazy"
-                />
-              </div>
-              <div className={styles.overlay}>
-                <span>{websiteNames[img] || img.replace('.jpg', '').replace('.png', '')}</span>
-                <span className={styles.viewFull}>View Full Size ↗</span>
-              </div>
-            </div>
-          ))}
+          {demoWebsites.map((img, index) => {
+            const url = websiteUrls[img];
+            return (
+              <a 
+                key={index} 
+                href={url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className={styles.card}
+              >
+                <div className={styles.imageWrapper}>
+                  <img 
+                    src={`/revolite/Demo Website/${img}`} 
+                    alt={websiteNames[img] || img}
+                    loading="lazy"
+                  />
+                </div>
+                <div className={styles.overlay}>
+                  <span>{websiteNames[img] || img.replace('.jpg', '').replace('.png', '')}</span>
+                  <span className={styles.viewFull}>Visit Website ↗</span>
+                </div>
+              </a>
+            );
+          })}
         </div>
       </div>
 
