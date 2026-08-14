@@ -42,7 +42,7 @@ const Footer = () => {
             <p>Connect with us:</p>
             <ul className={styles.contactList}>
               <li>
-                <a href="https://linkedin.com/company/revo-lite?trk=public_jobs_topcard_logo" target="_blank" rel="noopener noreferrer">
+                <a href="https://pk.linkedin.com/company/revo-lite?trk=public_jobs_topcard_logo" target="_blank" rel="noopener noreferrer">
                   LinkedIn
                 </a>
               </li>
@@ -51,7 +51,12 @@ const Footer = () => {
               </li>
               <li>
                 <a href="https://wa.me/923030912358" target="_blank" rel="noopener noreferrer">
-                  Message Revolite on WhatsApp
+                  WhatsApp
+                </a>
+              </li>
+              <li>
+                <a href="https://www.instagram.com/revolite.works" target="_blank" rel="noopener noreferrer">
+                  Instagram
                 </a>
               </li>
             </ul>

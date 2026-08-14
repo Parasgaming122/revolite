@@ -73,7 +73,7 @@ const PortfolioOverview = () => {
     if (selectedIndustry === 'Generic Assets') {
       navigate(`/portfolio/${sub}`);
     } else if (selectedIndustry === 'Demo Website') {
-      navigate(`/portfolio/Demo%20Website`);
+      navigate(`/demo-websites`);
     } else if (selectedIndustry && subcategoryImages[sub]) {
       // For industries with subcategories, use industry/subcategory format
       navigate(`/portfolio/${selectedIndustry}/${sub}`);

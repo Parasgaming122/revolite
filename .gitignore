@@ -3,9 +3,25 @@
 node_modules/
 
 # Build artifacts
-dist/
 build/
-target/
+dist/
+*.js.map
+
+# Environment variables
+.env
+.env.local
+*.env.*
+
+# Editors
+.vscode/
+.idea/
+
+# Logs
+*.log
+
+# OS generated files
+.DS_Store
+Thumbs.db
 
 # Python
 __pycache__/
@@ -16,36 +32,29 @@ __pycache__/
 env/
 venv/
 .venv/
-.eggs/
-.egg-info/
-*.egg-info/
-
-# Logs
-*.log
-
-# Environment variables
-.env
-.env.local
-*.env.*
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Coverage
-coverage/
-htmlcov/
+pip-log.txt
+pip-selfcheck.json
 .coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/
+.mypy_cache/
+.pytest_cache/
+.hypothesis/
+cover/
 
-# Temporary files
-*.tmp
-*.temp
+# Compiled and binary files
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
 
 # Compressed files
 *.zip
@@ -71,22 +80,190 @@ htmlcov/
 *.tar.xz
 *.tar.zst
 
-# MyPy
-.mypy_cache/
-
-# PyTest
-.pytest_cache/
+# Temporary files
+*.tmp
+*.temp
+*.swp
+*.swo
 
 # Gradle
 .gradle/
+build/
 
-# Compiled files
-*.class
+# Maven
+target/
+
+# Rust
+target/
+Cargo.lock
+
+# Go
 *.o
+*.so
+*.dylib
+*.exe
+*.dll
+*.out
+*.test
+vendor/
+
+# Java
+*.class
+*.jar
+*.war
+*.ear
+*.nar
+*.hprof
+.DS_Store
+!src/main/resources/application*.properties
+!src/main/resources/application*.yml
+!src/main/resources/application*.yaml
+!src/test/resources/application*.properties
+!src/test/resources/application*.yml
+!src/test/resources/application*.yaml
+
+# C/C++
+*.o
+*.obj
 *.exe
 *.dll
 *.so
 *.a
-*.obj
 *.out
+*.i
+*.ii
+*.s
+*.ii
+*.s
+*.lo
+*.la
+*.lt
+*.toc
+*.aux
+*.bbl
+*.blg
+*.brf
+*.fls
+*.log
+*.out
+*.fdb_latexmk
+*.synctex.gz
+*.ist
+*.acn
+*.acr
+*.alg
+*.glg
+*.glo
+*.gls
+*.idx
+*.ind
+*.ist
+*.lof
+*.lot
+*.maf
+*.mtc
+*.mtc0
+*.run.xml
+*.tps
+*.fls
+*.fdb_latexmk
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+*.pdf
+*.ps
+*.dvi
+*.xdv
+*.pdfsync
+*.lb
+*.synctex.gz(busy)
+*.bcf
+*.run.xml
+*.bcf
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.synctex(busy)
+*.nav
+*.snm
+*.vrb
+*.backup
+*.bak
+*.tmp
+*.temp
+*.log
+*.gz
+*.zip
+*.rar
+*.7z
+*.tar
+*.bz2
+*.xz
+*.lz
+*.lzma
+*.lzo
+*.z
+*.Z
+*.tar.gz
+*.tar.bz2
+*.tar.xz
+*.tar.zst
+*.tgz
+*.tbz2
+*.txz
+*.tzst
+*.zipx
+*.sitx
+*.sea
+*.hqx
+*.cpt
+*.bin
+*.dat
+*.bak
+*.old
+*.orig
+*.rej
+*.patch
+*.diff
+*.dump
+*.core
+*.stackdump
+*.err
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*.lock
+*.pid
+*.sock
+*.DS_Store
+Thumbs.db
+ehthumbs.db
+Icon?
+.directory
+.Trashes
+.nfs*
+*~
+.#*
+*.#
+*.un~
+*.bak
+*.BAK
+*.old
+*.OLD
+*.orig
+*.ORIG
+*.rej
+*.REJ
+*.swp
+*.swo
+*~
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+.DS_Store
 ```
