@@ -65,6 +65,7 @@ Instead of heavy state libraries, we use the native **React Context API** combin
 ### Routing Strategy
 We use **React Router Dom** for a seamless navigation experience.
 - **Dynamic Routing**: Our subcategory and industry pages are generated on-the-fly based on the URL parameters.
+- **Dedicated Pages**: Demo Websites now has its own dedicated page accessible via `/demo-websites`.
 
 ---
 
@@ -106,9 +107,26 @@ The `generate_manifest.cjs` script is a Node.js utility that recursively scans t
 #### `Navbar.jsx`
 - **Logic**: Tracks scroll position.
 - **Key Methods**: `toggleTheme()`, `toggleMenu()`.
+- **Navigation Links**: Home, Portfolio, Demo Websites, Logos, Banners, Branding, About.
 
 #### `Footer.jsx`
+- **Contact Information**: LinkedIn, Phone, WhatsApp, Instagram.
 - **Dynamic Content**: Renders industry links.
+
+### Portfolio Components
+
+#### `PortfolioOverview.jsx`
+- **Purpose**: Main portfolio hub displaying industries and categories.
+- **Features**: Two-level navigation (industries → subcategories).
+
+#### `PortfolioPage.jsx`
+- **Purpose**: Displays grid of images for a specific category/subcategory.
+- **Features**: Lightbox view, lazy loading, responsive grid.
+
+#### `DemoWebsites.jsx`
+- **Purpose**: Dedicated page showcasing demo website designs.
+- **Route**: `/demo-websites`
+- **Features**: Full-screen lightbox, website name overlays, responsive grid layout.
 
 ---
 
@@ -119,8 +137,12 @@ zabe-marketing/
 ├── public/              # Static assets (The Source of Truth)
 ├── src/
 │   ├── components/      # Atomic and Organism components
+│   │   ├── layout/      # Navbar, Footer, PageTransition
+│   │   ├── home/        # Hero, Services, Testimonials, etc.
+│   │   ├── portfolio/   # PortfolioOverview, PortfolioPage, DemoWebsites
+│   │   ├── about/       # AboutPage
+│   │   └── ui/          # CustomCursor, PageTransition
 │   ├── context/         # Theme and Global State
-│   ├── pages/           # Route-level views
 │   └── index.css        # The Design System
 └── README.md            # The Ultimate Manual
 ```
@@ -143,6 +165,9 @@ A: This was a known issue in v1.1.0. In v1.2.0, we replaced the aggressive slide
 
 **Q: Android feels laggy when scrolling.**
 A: Ensure `ParticleCanvas` is disabled on mobile (it is by default). Check that images are being lazy-loaded.
+
+**Q: How do I access the Demo Websites page?**
+A: Navigate to `/demo-websites` or click "Demo Websites" in the navbar. You can also access it from the Portfolio Hub by clicking on the "Demo Website" industry card.
 
 ---
 
@@ -226,6 +251,12 @@ We use the following metrics to define "Success" for REVO-LITE:
 - Unified ThemeContext logic.
 - Implemented the "Ultimate Documentation" standard.
 
+### v1.3.0: Demo Websites & Contact Update (Latest)
+- Created dedicated `/demo-websites` page with custom component.
+- Updated Footer contact links: LinkedIn, Phone, WhatsApp, Instagram.
+- Added Demo Websites link to navbar navigation.
+- Improved portfolio navigation structure.
+
 ---
 
 ## 🤝 Universal Contribution Guide & Code of Conduct
@@ -234,6 +265,16 @@ We welcome all developers who strive for excellence.
 - **Rule 1**: Never use `transition: all`. Specify the properties.
 - **Rule 2**: Every image MUST have an `alt` tag.
 - **Rule 3**: Code must be "Clean." If a function is longer than 50 lines, refactor it.
+
+---
+
+## 📞 Contact & Social Media
+
+Connect with REVO-LITE:
+- **LinkedIn**: https://pk.linkedin.com/company/revo-lite?trk=public_jobs_topcard_logo
+- **Phone**: +1 817 856 0456
+- **WhatsApp**: https://wa.me/923030912358
+- **Instagram**: https://www.instagram.com/revolite.works
 
 ---
 
