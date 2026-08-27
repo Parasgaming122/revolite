@@ -2,8 +2,15 @@ import React from 'react';
 import styles from './Contact.module.css';
 
 const Contact = () => {
+  const scrollToContact = () => {
+    const contactSection = document.getElementById('contact-section');
+    if (contactSection) {
+      contactSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
-    <section className={styles.section}>
+    <section className={styles.section} id="contact-section">
       <div className={styles.container}>
         <div className={styles.content}>
           <span className={styles.eyebrow}>Get in Touch</span>
@@ -56,14 +63,6 @@ const Contact = () => {
               <h3>Instagram</h3>
               <a href="https://www.instagram.com/revolite.works" target="_blank" rel="noopener noreferrer">@revolite.works</a>
             </div>
-          </div>
-          
-          <div className={styles.ctaSection}>
-            <h2>Ready to Start Your Project?</h2>
-            <p>Send us a message and we'll get back to you within 24 hours.</p>
-            <a href="mailto:contact@revolite.works" className={styles.emailButton}>
-              contact@revolite.works
-            </a>
           </div>
         </div>
       </div>

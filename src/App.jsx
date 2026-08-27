@@ -11,8 +11,6 @@ const Ticker = lazy(() => import('./components/home/Ticker'));
 const FeaturedWork = lazy(() => import('./components/home/FeaturedWork'));
 const Services = lazy(() => import('./components/home/Services'));
 const Benefits = lazy(() => import('./components/home/Benefits'));
-const FeaturedProjects = lazy(() => import('./components/home/FeaturedProjects'));
-const ModernTestimonials = lazy(() => import('./components/home/ModernTestimonials'));
 const CTA = lazy(() => import('./components/home/CTA'));
 const Contact = lazy(() => import('./components/home/Contact'));
 const PortfolioPage = lazy(() => import('./components/portfolio/PortfolioPage'));
@@ -70,8 +68,6 @@ const HomePage = () => {
       <Ticker />
       <FeaturedWork />
       <Services />
-      <FeaturedProjects />
-      <ModernTestimonials />
       <Contact />
     </>
   );
@@ -96,7 +92,6 @@ function App() {
               <Route path="/portfolio/:subcategory" element={<PortfolioPage />} />
               <Route path="/websites" element={<Websites />} />
               <Route path="/about" element={<AboutPage />} />
-              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<HomePage />} />
             </Routes>
           </Suspense>
