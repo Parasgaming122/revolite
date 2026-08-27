@@ -14,10 +14,11 @@ const Benefits = lazy(() => import('./components/home/Benefits'));
 const FeaturedProjects = lazy(() => import('./components/home/FeaturedProjects'));
 const ModernTestimonials = lazy(() => import('./components/home/ModernTestimonials'));
 const CTA = lazy(() => import('./components/home/CTA'));
+const Contact = lazy(() => import('./components/home/Contact'));
 const PortfolioPage = lazy(() => import('./components/portfolio/PortfolioPage'));
 const PortfolioOverview = lazy(() => import('./components/portfolio/PortfolioOverview'));
 const AboutPage = lazy(() => import('./components/about/AboutPage'));
-const DemoWebsites = lazy(() => import('./components/portfolio/DemoWebsites'));
+const Websites = lazy(() => import('./components/portfolio/Websites'));
 
 // Scroll to top and trigger transition on route change
 const RouteManager = ({ setIsTransitioning }) => {
@@ -69,10 +70,9 @@ const HomePage = () => {
       <Ticker />
       <FeaturedWork />
       <Services />
-      <Benefits />
       <FeaturedProjects />
       <ModernTestimonials />
-      <CTA />
+      <Contact />
     </>
   );
 };
@@ -94,8 +94,9 @@ function App() {
               <Route path="/portfolio" element={<PortfolioOverview />} />
               <Route path="/portfolio/:industry/:subcategory" element={<PortfolioPage />} />
               <Route path="/portfolio/:subcategory" element={<PortfolioPage />} />
-              <Route path="/demo-websites" element={<DemoWebsites />} />
+              <Route path="/websites" element={<Websites />} />
               <Route path="/about" element={<AboutPage />} />
+              <Route path="/contact" element={<Contact />} />
               <Route path="*" element={<HomePage />} />
             </Routes>
           </Suspense>

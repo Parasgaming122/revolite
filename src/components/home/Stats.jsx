@@ -61,6 +61,7 @@ const Stats = () => {
             </div>
           ))}
         </div>
+        <p style={{ textAlign: 'center', marginTop: '2rem', fontSize: '14px', opacity: 0.7 }}>Results from recent client projects</p>
       </div>
     </section>
   );

@@ -42,14 +42,14 @@ const ModernTestimonials = () => {
       <div className={styles.container}>
         <div className={styles.content}>
           <div className={styles.eyebrow}>Client Success</div>
-          <h2 className={styles.title}>Impact through <br />Design:</h2>
+          <h2 className={styles.title}>Impact through Design</h2>
           <p className={styles.subtitle}>Our branding solutions drive real-world results.</p>
           <button className={styles.cta} onClick={() => navigate('/portfolio')}>
             View Portfolio ↗
           </button>
 
           <div className={styles.partners}>
-            <h3>Trusted By Industry Leaders :</h3>
+            <h3>Trusted By Industry Leaders</h3>
             <div className={styles.logoGrid}>
               <div className={styles.partnerLogo}>Premium Retail</div>
               <div className={styles.partnerLogo}>Luxury Goods</div>

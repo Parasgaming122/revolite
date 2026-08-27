@@ -7,9 +7,9 @@ const AboutPage = () => {
       <header className={styles.header}>
         <div className={styles.container}>
           <div className={styles.eyebrow}>Our Philosophy</div>
-          <h1 className={styles.title}>The <span className={styles.accent}>Retina Quality</span> Standard</h1>
+          <h1 className={styles.title}>The Standard We Hold <span className={styles.accent}>Every Project To</span></h1>
           <p className={styles.description}>
-            REVO-LITE is an elite branding studio dedicated to crafting visual identities that don't just exist—they dominate.
+            REVO-LITE is a branding studio built on one rule: nothing ships until it's sharp, considered, and unmistakably yours.
           </p>
         </div>
       </header>
@@ -18,9 +18,9 @@ const AboutPage = () => {
         <div className={styles.container}>
           <div className={styles.grid}>
             <div className={styles.content}>
-              <h2 className={styles.sectionTitle}>Precision in Every Pixel</h2>
+              <h2 className={styles.sectionTitle}>Precision, Not Just Polish</h2>
               <p>
-                In an era of digital saturation, average isn't enough. We believe every brand deserves a "Retina Quality" presence—identities that remain sharp, professional, and impactful across every possible resolution and touchpoint.
+                In a saturated market, "good enough" gets scrolled past. Every identity we build — logo, banners, full brand system — is designed to hold up at any size, on any screen, from a business card to a billboard.
               </p>
               <div className={styles.stats}>
                 <div className={styles.stat}>
@@ -28,8 +28,8 @@ const AboutPage = () => {
                   <div className={styles.statLabel}>Custom Design</div>
                 </div>
                 <div className={styles.stat}>
-                  <div className={styles.statNum}>8K+</div>
-                  <div className={styles.statLabel}>Pixel Perfect</div>
+                  <div className={styles.statNum}>5+</div>
+                  <div className={styles.statLabel}>Years Experience</div>
                 </div>
               </div>
             </div>
@@ -46,7 +46,7 @@ const AboutPage = () => {
             <h2 className={styles.sectionTitle}>Our Story</h2>
             <div className={styles.storyBody}>
               <p>
-                From our early days designing emotes and stream packs, we've grown into a full-service creative studio covering everything from character artwork to professional video editing. Our team combines technical skill with artistic vision to deliver work that doesn't just look good — it performs.
+                REVO-LITE was built to close a gap: growing retail and lifestyle brands need agency-quality design without agency-size budgets or timelines. We work as an extension of your team — logos, banners, and full brand systems — with the speed and attention usually reserved for much bigger clients.
               </p>
               <p className={styles.plainText}>
                 Disclaimer: All images displayed across our portfolio are samples. Due to strict client confidentiality agreements, we cannot upload original client assets. These samples serve to demonstrate the high level of quality, style, and creativity we bring to every project.
@@ -73,7 +73,7 @@ const AboutPage = () => {
             <div className={styles.step}>
               <div className={styles.stepNum}>03</div>
               <h3>Polishing</h3>
-              <p>Every asset is optimized for retina displays, ensuring flawless execution from logos to banners.</p>
+              <p>Every asset is refined for flawless execution across screen and print — from a logo at favicon size to a banner at billboard scale.</p>
             </div>
           </div>
         </div>
