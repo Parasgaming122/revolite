@@ -31,7 +31,7 @@ const Navbar = () => {
     { name: 'Banners', path: '/portfolio/banners' },
     { name: 'Branding Assets', path: '/portfolio/brand-assets' },
     { name: 'About', path: '/about' },
-    { name: 'Contact', path: '/contact' },
+    { name: 'Contact Us', path: '/#contact-section' },
   ];
 
   return (

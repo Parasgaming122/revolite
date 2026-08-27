@@ -1,7 +1,7 @@
 .section {
   padding: 100px 24px;
-  background: linear-gradient(135deg, #0a192f 0%, #1a365d 100%);
-  color: white;
+  background: var(--bg);
+  color: var(--text);
 }
 
 .container {
@@ -19,7 +19,7 @@
   font-weight: 700;
   letter-spacing: 2px;
   text-transform: uppercase;
-  color: #64ffda;
+  color: var(--accent);
   margin-bottom: 16px;
 }
 
@@ -29,13 +29,14 @@
   line-height: 1.1;
   margin-bottom: 20px;
   letter-spacing: -0.02em;
+  color: var(--text);
 }
 
 .description {
   font-size: 18px;
   max-width: 600px;
   margin: 0 auto 60px;
-  color: #8892b0;
+  color: var(--text-secondary);
   line-height: 1.6;
 }
 
@@ -47,8 +48,8 @@
 }
 
 .contactCard {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
   border-radius: 12px;
   padding: 30px 20px;
   transition: all 0.3s ease;
@@ -56,8 +57,8 @@
 
 .contactCard:hover {
   transform: translateY(-5px);
-  border-color: #64ffda;
-  background: rgba(255, 255, 255, 0.08);
+  border-color: var(--accent);
+  background: var(--card-hover);
 }
 
 .iconWrapper {
@@ -67,71 +68,32 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(100, 255, 218, 0.1);
+  background: var(--icon-bg);
   border-radius: 50%;
 }
 
 .iconWrapper svg {
   width: 28px;
   height: 28px;
-  color: #64ffda;
+  color: var(--accent);
 }
 
 .contactCard h3 {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 10px;
-  color: white;
+  color: var(--text);
 }
 
 .contactCard a {
-  color: #8892b0;
+  color: var(--text-secondary);
   text-decoration: none;
   font-size: 16px;
   transition: color 0.3s ease;
 }
 
 .contactCard a:hover {
-  color: #64ffda;
-}
-
-.ctaSection {
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: 16px;
-  padding: 50px 30px;
-  max-width: 700px;
-  margin: 0 auto;
-}
-
-.ctaSection h2 {
-  font-size: 28px;
-  font-weight: 700;
-  margin-bottom: 12px;
-  color: white;
-}
-
-.ctaSection p {
-  color: #8892b0;
-  margin-bottom: 30px;
-  font-size: 16px;
-}
-
-.emailButton {
-  display: inline-block;
-  background: #64ffda;
-  color: #0a192f;
-  padding: 16px 40px;
-  border-radius: 8px;
-  font-weight: 700;
-  font-size: 18px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-}
-
-.emailButton:hover {
-  background: #4aeec9;
-  transform: translateY(-2px);
+  color: var(--accent);
 }
 
 @media (max-width: 768px) {
@@ -142,9 +104,5 @@
   .contactGrid {
     grid-template-columns: 1fr;
     gap: 20px;
-  }
-  
-  .ctaSection {
-    padding: 30px 20px;
   }
 }

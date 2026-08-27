@@ -1,65 +1,71 @@
-```
+```gitignore
 # Dependencies
 node_modules/
 
 # Build artifacts
 dist/
 build/
-*.o
-*.obj
+*.js.map
+*.css.map
 
-# Cache directories
-.cache/
-.node_cache/
-.npm/
-
-# Logs
+# Logs and temp files
 *.log
+*.tmp
 
 # Environment
 .env
 .env.local
-.env.*
+*.env.*
 
-# Editor/IDE
+# Editors
 .vscode/
 .idea/
 *.swp
 *.swo
-*.tmp
 
-# OS
-.DS_Store
-Thumbs.db
-
-# Coverage
-coverage/
-htmlcov/
-.coverage
-
-# Python specific
+# Python
 __pycache__/
 *.pyc
 *.pyo
 *.pyd
 .Python
-*.so
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git/modules/
+*.sublime-workspace
+.pytest_cache/
+.mypy_cache/
+.hypothesis/
 
-# Compiled files
-*.class
-*.dll
+# Compiled and binary files
+*.o
+*.obj
 *.exe
-*.a
+*.dll
 *.so
+*.a
+*.out
+*.class
 
-# Compressed files
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+Icon?
+*/Icon?
 ```
