@@ -15,7 +15,7 @@ const Footer = () => {
             </Link>
             <p className={styles.tagline}>
               Premium Branding Studio. <br />
-              Crafting visual excellence for ambitious businesses worldwide.
+              Crafting visual excellence for growing retail businesses worldwide.
             </p>
           </div>
 
@@ -23,17 +23,19 @@ const Footer = () => {
             <h3>Navigation</h3>
             <ul>
               <li><Link to="/">Home</Link></li>
-              <li><Link to="/portfolio">Portfolio Hub</Link></li>
-              <li><Link to="/about">About Us</Link></li>
+              <li><Link to="/portfolio">Portfolio</Link></li>
+              <li><Link to="/websites">Websites</Link></li>
+              <li><Link to="/about">About</Link></li>
+              <li><Link to="/contact">Contact</Link></li>
             </ul>
           </div>
 
           <div className={styles.links}>
             <h3>Expertise</h3>
             <ul>
-              <li><Link to="/portfolio/logos">Logo Design</Link></li>
-              <li><Link to="/portfolio/banners">Web Banners</Link></li>
-              <li><Link to="/portfolio/brand-assets">Brand Identity</Link></li>
+              <li><Link to="/portfolio/logos">Logos</Link></li>
+              <li><Link to="/portfolio/banners">Banners</Link></li>
+              <li><Link to="/portfolio/brand-assets">Branding Assets</Link></li>
             </ul>
           </div>
 

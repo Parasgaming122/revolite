@@ -1,11 +1,11 @@
 import React, { useState } from 'react';
 import manifest from '../../portfolio_manifest.json';
-import styles from './DemoWebsites.module.css';
+import styles from './Websites.module.css';
 
-const DemoWebsites = () => {
+const Websites = () => {
   const [selectedImage, setSelectedImage] = useState(null);
   
-  const demoWebsites = manifest['Demo Website'] || [];
+  const websites = manifest['Demo Website'] || [];
   
   const websiteNames = {
     'allbirds.jpg': 'Allbirds',
@@ -29,10 +29,10 @@ const DemoWebsites = () => {
 
   const handleClose = () => setSelectedImage(null);
 
-  if (demoWebsites.length === 0) {
+  if (websites.length === 0) {
     return (
       <div className={styles.empty}>
-        <h2>No demo websites found</h2>
+        <h2>No websites found</h2>
       </div>
     );
   }
@@ -41,8 +41,8 @@ const DemoWebsites = () => {
     <div className={styles.page}>
       <header className={styles.header}>
         <div className={styles.container}>
-          <div className={styles.eyebrow}>Portfolio / Demo Websites</div>
-          <h1 className={styles.title}>Demo Websites</h1>
+          <div className={styles.eyebrow}>Portfolio / Websites</div>
+          <h1 className={styles.title}>Websites</h1>
           <p className={styles.description}>
             Explore our collection of website design showcases and demonstrations.
           </p>
@@ -51,7 +51,7 @@ const DemoWebsites = () => {
 
       <div className={styles.container}>
         <div className={styles.grid}>
-          {demoWebsites.map((img, index) => {
+          {websites.map((img, index) => {
             const url = websiteUrls[img];
             return (
               <a 
@@ -91,7 +91,7 @@ const DemoWebsites = () => {
               </svg>
             </button>
             <div className={styles.imageMeta}>
-              <span>Demo Websites — REVO-LITE Portfolio</span>
+              <span>Websites — REVO-LITE Portfolio</span>
             </div>
           </div>
         </div>
@@ -100,4 +100,4 @@ const DemoWebsites = () => {
   );
 };
 
-export default DemoWebsites;
+export default Websites;

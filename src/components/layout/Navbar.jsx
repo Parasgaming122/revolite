@@ -26,11 +26,12 @@ const Navbar = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Portfolio', path: '/portfolio' },
-    { name: 'Demo Websites', path: '/demo-websites' },
+    { name: 'Websites', path: '/websites' },
     { name: 'Logos', path: '/portfolio/logos' },
     { name: 'Banners', path: '/portfolio/banners' },
-    { name: 'Branding', path: '/portfolio/brand-assets' },
+    { name: 'Branding Assets', path: '/portfolio/brand-assets' },
     { name: 'About', path: '/about' },
+    { name: 'Contact', path: '/contact' },
   ];
 
   return (

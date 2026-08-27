@@ -26,7 +26,7 @@ const Services = () => {
     {
       id: '04',
       title: 'Apparel Design',
-      desc: 'Professional merchandise and clothing branding for your team.',
+      desc: 'Professional apparel and merchandise branding for client projects.',
       icon: '✦'
     },
     {
@@ -50,7 +50,7 @@ const Services = () => {
           <div className={styles.eyebrow}>Our Services</div>
           <h2 className={styles.title}>Visual Solutions for <span className={styles.accentText}>Modern Brands</span></h2>
           <div className={styles.ctaHeader}>
-            <p>Explore our full range of 10+ branding categories.</p>
+            <p>Explore our full range of branding categories.</p>
             <button className={styles.headerBtn} onClick={() => navigate('/portfolio')}>
               View Portfolio Hub ↗
             </button>

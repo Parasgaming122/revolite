@@ -3,7 +3,7 @@ import styles from './Ticker.module.css';
 
 const Ticker = () => {
   const items = [
-    'PREMIUM LOGOS', 'BRAND IDENTITY', 'WEB BANNERS', 'SOCIAL MEDIA DESIGN', 
+    'LOGOS', 'BRAND IDENTITY', 'WEB BANNERS', 'SOCIAL MEDIA DESIGN', 
     'STATIONERY DESIGN', 'UI/UX DESIGN', 'GRAPHIC DESIGN', 'MARKETING ASSETS'
   ];
 

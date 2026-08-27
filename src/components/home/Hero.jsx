@@ -11,19 +11,19 @@ const Hero = () => {
           <span className={styles.eyebrow}>High-End Branding Studio</span>
           <h1 className={styles.title}>
             Crafting <br />
-            <span className={styles.highlight}>Retina Quality</span> <br />
-            Identities
+            Identities That <br />
+            <span className={styles.highlight}>Convert</span>
           </h1>
           <p className={styles.description}>
-            We specialize in creating premium visual experiences for luxury brands and retail industry leaders worldwide.
+            We design logos, banners, and brand systems for growing retail businesses — built to look premium without the premium agency price tag.
           </p>
           <div className={styles.actions}>
             <button className={styles.primaryBtn} onClick={() => navigate('/portfolio')}>
               Explore Portfolio
             </button>
-            <button className={styles.secondaryBtn} onClick={() => navigate('/about')}>
+            <button className={styles.secondaryBtn} onClick={() => navigate('/contact')}>
               <div className={styles.playIcon}>✦</div>
-              Our Process
+              Contact Us
             </button>
           </div>
         </div>

@@ -10,7 +10,7 @@ const PortfolioOverview = () => {
 
   const portfolioStructure = {
     'Apparel & Clothing': {
-      subs: ['Brand Logo', 'Hand Tags', 'Social Media Posts', 'Website Banner'],
+      subs: ['Brand Logos', 'Hand Tags', 'Social Media Posts', 'Website Banners'],
       img: '/revolite/Apparel & Clothing/Brand Logo/08a601243667647.6986107b3152b.jpg'
     },
     'Food & Drink': {
@@ -18,23 +18,23 @@ const PortfolioOverview = () => {
       img: '/revolite/Food & Drink/Branding Assets/042811209829107.67066d704f556.webp'
     },
     'Gift Shops': {
-      subs: ['Logo', 'Packaging & Tags'],
+      subs: ['Logos', 'Packaging & Tags'],
       img: '/revolite/Gift Shops/Logo/03c9c0232711565.68da37e77ff84.png'
     },
     'Home Decor': {
-      subs: ['Logo', 'Banner'],
+      subs: ['Logos', 'Banners'],
       img: '/revolite/Home Decor/Logo/07b2b1232357981.689af13b9841f.jpg'
     },
-    'Jewelry Bussinesses': {
-      subs: ['Brand Logo', 'Banners', 'Product Demonstration Posts'],
-      img: '/revolite/Jewelry Bussinesses/Brand Logo/0762b4208659471.66f299344b8f8.jpg'
+    'Jewelry Businesses': {
+      subs: ['Brand Logos', 'Banners', 'Product Demonstration Posts'],
+      img: '/revolite/Jewelry Businesses/Brand Logo/0762b4208659471.66f299344b8f8.jpg'
     },
     'Marketing Agencies': {
-      subs: ['Logo', 'Banner'],
+      subs: ['Logos', 'Banners'],
       img: '/revolite/Marketing Agencies/Logo/176a64248607937.69f5197278628.jpg'
     },
     'Skincare Shops': {
-      subs: ['Logo', 'Packaging & Design', 'Social Media Post', 'Website Banner'],
+      subs: ['Logos', 'Packaging & Design', 'Social Media Posts', 'Website Banners'],
       img: '/revolite/Skincare Shops/Logo/1eea15248522079.69f32767e9bbf.png'
     },
     'Generic Assets': {
@@ -42,21 +42,29 @@ const PortfolioOverview = () => {
       img: '/revolite/logos/logo-1.jpg'
     },
     'Demo Website': {
-      subs: ['Demo Website'],
+      subs: ['Demo Websites'],
       img: '/revolite/Demo Website/westbourne.jpg'
+    },
+    'Miscellaneous Brands': {
+      subs: ['Logos', 'Banners'],
+      img: '/revolite/Miscellaneous Brands/Logo/1fda8e248305621.69eee9202aa21.jpg'
     }
   };
 
   const subcategoryImages = {
     'Brand Logo': '/revolite/Apparel & Clothing/Brand Logo/08a601243667647.6986107b3152b.jpg',
+    'Brand Logos': '/revolite/Apparel & Clothing/Brand Logo/08a601243667647.6986107b3152b.jpg',
     'Hand Tags': '/revolite/Apparel & Clothing/Hand Tags/56b873152063955.6317650b8cbcf.jpg',
     'Social Media Posts': '/revolite/Apparel & Clothing/Social Media Posts/5dc863247031677.69d212c279d7a.jpeg',
     'Website Banner': '/revolite/Apparel & Clothing/Website Banner/07f687243600111.6984b4f31512c.jpg',
-    'Logos': '/revolite/Food & Drink/Logos/0bc884222079259.67dfdd7551732.jpg',
+    'Website Banners': '/revolite/Apparel & Clothing/Website Banner/07f687243600111.6984b4f31512c.jpg',
+    'Logos': '/revolite/Skincare Shops/Logo/1eea15248522079.69f32767e9bbf.png',
+    'Banners': '/revolite/Jewelry Businesses/Banners/1469f5190735525.65bff8fa8aea2.jpg',
     'Branding Assets': '/revolite/Food & Drink/Branding Assets/042811209829107.67066d704f556.webp',
-    'Logo': '/revolite/Skincare Shops/Logo/1eea15248522079.69f32767e9bbf.png',
-    'Banners': '/revolite/Jewelry Bussinesses/Banners/1469f5190735525.65bff8fa8aea2.jpg',
-    'Banner': '/revolite/Home Decor/Banner/23f91f177810003.64ddb6ef35f66.png',
+    'Packaging & Tags': '/revolite/Gift Shops/Packaging & Tags/05302420455533.5635e2aed9b3c.jpg',
+    'Packaging & Design': '/revolite/Skincare Shops/Branding Assets/022916247054839.69d3bc4527167.jpg',
+    'Product Demonstration Posts': '/revolite/Jewelry Businesses/Product Demonstration Posts/240_F_644654002_7pHF8C5mwMPmbgwuOY3G2kUq1dtNL4sS.jpg',
+    'Demo Websites': '/revolite/Demo Website/westbourne.jpg',
     'logos': '/revolite/logos/logo-1.jpg',
     'banners': '/revolite/banners/banner-1.jpg',
     'brand-assets': '/revolite/brand-assets/brand-1.jpg'
